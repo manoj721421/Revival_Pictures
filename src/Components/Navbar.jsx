@@ -25,7 +25,7 @@ import Home from "./Movies.jsx";
 import About from "./About.jsx";
 import Player from "./Player.jsx";
 import Mdata from "./Mdata.jsx";
-import logo from "../logo.svg";
+import logo from "../assets/popcorn.png";
 import Login from "./Login.jsx";
 import history from "./history";
 
@@ -65,7 +65,7 @@ function Navbars() {
             <Container fluid>
               <Navbar.Brand className="mx-2" as={Link} to={"/"}>
                 {" "}
-                <img src={logo} alt="logo" width="80px" /> Revival Pictures
+                <img src={logo} alt="logo" width="40px" />Revival Pictures
               </Navbar.Brand>
               <div>
                 <Button

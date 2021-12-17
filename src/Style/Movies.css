@@ -88,10 +88,31 @@ small {
     transform: translateY(155px);
 }
 
-@media (max-width: 490px) {
+.hide {
+    display: block;
+}
+
+.btns {
+    position: relative;
+    z-index: 9999;
+}
+
+@media (max-width: 560px) {
     .text {
         font-size: 20px;
         font-weight: 700;
         padding-top: 0px;
+    }
+    .faded img {
+        height: 100%;
+    }
+    .hide {
+        display: none;
+    }
+}
+
+@media (max-width: 960px) {
+    .faded img {
+        height: 100%;
     }
 }

@@ -31,79 +31,104 @@ function Movies(){
               console.log(resp);
           })
       })
-      fetch("https://imdb-api.com/en/API/MostPopularMovies/k_7si6m0ax").then((response)=>{
-          response.json().then((resps)=>{
-              setMovies(resps.items.slice(0,24));
-              console.log(resps.items);
-          })
-      })
+    //   fetch("https://imdb-api.com/en/API/MostPopularMovies/k_7si6m0ax").then((response)=>{
+    //       response.json().then((resps)=>{
+    //           setMovies(resps.items.slice(0,24));
+    //           console.log(resps.items);
+    //       })
+    //   })
     },[])
     return(
         <div className="pt-4" style={{backgroundColor: 'black'}}>
         <Carousel  indicators={false} controls={false} >
 
-        <Carousel.Item interval={2000} >
-         <Card  className="mx-5" style={{backgroundColor:"black"}}>
+         <Carousel.Item interval={6000} >
+         <Card  className="mx-4" style={{backgroundColor:"black"}}>
          <Row>
           <Col xs={6} md={5}>
-              <p className="m-0 text"> DC'S LOST ANGELS </p>
-              <p className="m-0">Action . 1hr 23min . 2021</p>
-              <small className ="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores at </small> 
-              <div className="d-flex justify-content-center mt-3">
-                  <Button variant="danger" className="mx-3 px-3" onClick ={()=>{history.push("/contact")}} >  <i class="fas fa-play-circle"></i> Play</Button>
-                  
-                  <Button variant="outline-danger" className="mx-3 text-white"><i class="fas fa-info-circle"></i> Watch Trailer</Button>      
-                  <Button variant="danger" className="mx-3"><i class="fas fa-plus"></i> Watchlist</Button> 
-              </div>  
-          </Col>
-          <Col xs={6} md={7} className="p-0 faded">
-          <img className="d-block w-100 shade" src={first} alt="First slide" style={{borderRadius:"0 10px 10px 0"}} />
-          </Col>
-           </Row>
-           </Card>
-        </Carousel.Item>
-
-
-        <Carousel.Item interval={2000}>
-         <Card  className="mx-5"  style={{backgroundColor:"black"}}>
-         <Row>
-          <Col xs={6} md={5} >
-          <p className="m-0 text">
-            FLASH 
-          </p>
-          <p className="m-0">Action . 1hr 23min . 2021</p>
-              <small className ="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores at </small> 
-              <div className="d-flex justify-content-center mt-3">
-                  <Button variant="danger" className="mx-3 px-3" onClick ={()=>{history.push("/Contact")}}><i class="fas fa-play-circle"></i> Play</Button>
-                  <Button variant="outline-danger" className="mx-3 text-white"><i class="fas fa-info-circle"></i> Watch Trailer</Button>      
-                  <Button variant="danger" className="mx-3"><i class="fas fa-plus"></i> Watchlist</Button> 
-              </div>  
-          </Col>
-          <Col xs={6} md={7} className="p-0 faded ">
-          <img className="d-block w-100" src={second} alt="First slide"  style={{borderRadius:"0 10px 10px 0"}} />
-          </Col>
-           </Row>
-           </Card>
-        </Carousel.Item>
-
-
-        <Carousel.Item interval={2000} >
-         <Card  className="mx-5" style={{backgroundColor:"black"}}>
-         <Row>
-          <Col xs={6} md={5}>
+             <div className="justify-content-center ">
              <p className="m-0 text">
             STRANGER THINGS
              </p>
-             <p className="m-0">Action . 1hr 23min . 2021</p>
-              <small className ="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores at </small> 
-              <div className="d-flex justify-content-center mt-3">
-                  <Button variant="danger" className="mx-3 px-3" onClick ={()=>{history.push("/contact")}} ><i class="fas fa-play-circle"></i> Play</Button>
-                  <Button variant="outline-danger" className="mx-3 text-white"><i class="fas fa-info-circle"></i> Watch Trailer</Button>      
-                  <Button variant="danger" className="mx-3"><i class="fas fa-plus"></i> Watchlist</Button> 
-              </div>   
+             <small className=" text-white">Action . 1hr 23min . 2021</small><br/>
+              <small className ="hide">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores at </small> 
+              <Row className="d-flex justify-content-around mt-3 btns">
+                <Col lg={3} md={2} xs={3} className="p-0">
+                  <Button variant="danger" className=" px-3  " onClick ={()=>{history.push("/contact")}} ><i class="fas fa-play-circle"></i> Play</Button>
+                  </Col>
+                  <Col lg={4} md={2} xs={3} className="p-0 ">
+                  <Button variant="outline-danger" className="  text-white"><i class="fas fa-info-circle"></i> Watch Trailer</Button>      
+                  </Col>
+                  <Col lg={3} md={2} xs={3} className="p-0 ">
+                  <Button variant="danger" className=""><i class="fas fa-plus"></i> Watchlist</Button> 
+                  </Col>
+              </Row>   
+                 </div>
           </Col>
           <Col xs={6} md={7} className = "p-0 faded">
-            <img className="d-block w-100" src={third} alt="First slide" style={{borderRadius:"0 10px 10px 0"}} />
+            <img className=" " src={first} alt="First slide" style={{borderRadius:"0 10px 10px 0",width:"100%"}} />
+          </Col>
+           </Row>
+           </Card>
+        </Carousel.Item>
+
+
+         <Carousel.Item interval={6000} >
+         <Card  className="mx-4" style={{backgroundColor:"black"}}>
+         <Row>
+          <Col xs={6} md={5}>
+             <div className="justify-content-center ">
+             <p className="m-0 text">
+            STRANGER THINGS
+             </p>
+             <small className=" text-white">Action . 1hr 23min . 2021</small><br/>
+              <small className ="hide">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores at </small> 
+              <Row className="d-flex justify-content-around mt-3 btns">
+                <Col lg={3} md={2} xs={3} className="p-0">
+                  <Button variant="danger" className=" px-3  " onClick ={()=>{history.push("/contact")}} ><i class="fas fa-play-circle"></i> Play</Button>
+                  </Col>
+                  <Col lg={4} md={2} xs={3} className="p-0 ">
+                  <Button variant="outline-danger" className="  text-white"><i class="fas fa-info-circle"></i> Watch Trailer</Button>      
+                  </Col>
+                  <Col lg={3} md={2} xs={3} className="p-0 ">
+                  <Button variant="danger" className=""><i class="fas fa-plus"></i> Watchlist</Button> 
+                  </Col>
+              </Row>   
+                 </div>
+          </Col>
+          <Col xs={6} md={7} className = "p-0 faded">
+            <img className=" " src={second} alt="First slide" style={{borderRadius:"0 10px 10px 0",width:"100%"}} />
+          </Col>
+           </Row>
+           </Card>
+        </Carousel.Item>
+
+
+        <Carousel.Item interval={6000} >
+         <Card  className="mx-4" style={{backgroundColor:"black"}}>
+         <Row>
+          <Col xs={6} md={5}>
+             <div className="justify-content-center ">
+             <p className="m-0 text">
+            STRANGER THINGS
+             </p>
+             <small className=" text-white">Action . 1hr 23min . 2021</small><br/>
+              <small className ="hide">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores at </small> 
+              <Row className="d-flex justify-content-around mt-3 btns">
+                <Col lg={3} md={2} xs={3} className="p-0">
+                  <Button variant="danger" className=" px-3  " onClick ={()=>{history.push("/contact")}} ><i class="fas fa-play-circle"></i> Play</Button>
+                  </Col>
+                  <Col lg={4} md={2} xs={3} className="p-0 ">
+                  <Button variant="outline-danger" className="  text-white"><i class="fas fa-info-circle"></i> Watch Trailer</Button>      
+                  </Col>
+                  <Col lg={3} md={2} xs={3} className="p-0 ">
+                  <Button variant="danger" className=""><i class="fas fa-plus"></i> Watchlist</Button> 
+                  </Col>
+              </Row>   
+                 </div>
+          </Col>
+          <Col xs={6} md={7} className = "p-0 faded">
+            <img className=" " src={third} alt="First slide" style={{borderRadius:"0 10px 10px 0",width:"100%"}} />
           </Col>
            </Row>
            </Card>
@@ -112,11 +137,11 @@ function Movies(){
       </Carousel>
 
       <div>
-      <Row className=" mt-5 d-flex justify-content-between">
-        <Col lg={2} md={2} xs={2}>
+      <Row className=" mt-5 d-flex justify-content-between  w-100">
+        <Col lg={2} md={4} xs={6}>
         <h5 className="text-white border-bottom  mx-3">Upcoming Movies</h5>
         </Col>
-        <Col  lg={2} md={2} xs={2}>
+        <Col  lg={2} md={4} xs={6}>
         <Button variant="danger">More Movies</Button>
         </Col>
         </Row>
@@ -125,8 +150,9 @@ function Movies(){
                 {
                     upcoming?.map((item)=>
                             
-                            <Col xs={6} md={3} lg={2} className="px-3  ">
-                        <Card className="bg-dark text-white mb-3 zoom1" style={{width:"12rem"}} >
+                            <Col xs={6} md={3} lg={2} className="px-0">
+                        <Row className="justify-content-center ">
+                        <Card className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem"}} >
                         <Card.Img src={item.image.medium} alt="Card image" />
                        
                         <div className="row justify-content-center info">
@@ -136,6 +162,7 @@ function Movies(){
                         </div>
 
                         </Card>
+                          </Row>
                         </Col>
                      )
                 } 
@@ -146,11 +173,11 @@ function Movies(){
 
 
     <div>
-      <Row className=" mt-5 d-flex justify-content-between">
-        <Col lg={2} md={2} xs={2}>
+      <Row className=" mt-5 mx-0 d-flex justify-content-between w-100">
+        <Col lg={2} md={4} xs={6}>
         <h5 className="text-white border-bottom  mx-3">Recently Added</h5>
         </Col>
-        <Col  lg={2} md={2} xs={2}>
+        <Col  lg={2} md={4} xs={6}>
         <Button variant="danger">More Movies</Button>
         </Col>
       </Row>
@@ -222,8 +249,8 @@ function Movies(){
     </div>
 
     
-    <div>
-      <Row className=" mt-5 d-flex justify-content-between ">
+    {/* <div>
+      <Row className=" mt-5 d-flex justify-content-between  w-100">
         <Col lg={2} md={2} xs={2}>
         <h5 className="text-white border-bottom  mx-3">web Series</h5>
         </Col>
@@ -251,21 +278,25 @@ function Movies(){
 
                 }
                 </Row>
-        </div>
-        <div>
-      <Row className=" mt-5 d-flex justify-content-between ">
+        </div> */}
+
+
+
+
+        {/* <div className="m-0">
+      <Row className=" mt-5 mx-0 d-flex justify-content-between  w-100 ">
         <Col lg={2} md={2} xs={2}>
         <h5 className="text-white border-bottom  mx-3">Popular Movies</h5>
         </Col>
         <Col  lg={2} md={2} xs={2}>
         <Button variant="danger">More Movies</Button>
         </Col>
-      </Row> 7853 0056 1436 3988
+      </Row>
     
         <Row className="mt-2 mx-3  center">
                 {
                 movies.map((item)=>
-                    <Col xs={5} md={3} lg={2}  className="p-0  ">
+                    <Col xs={6} md={3} lg={2}  className="p-0  ">
                     <Card className="bg-dark text-white mb-3 zoom1" style={{width:"12rem"}} onClick={()=>{history.push({pathname:"/mdata",search:item.id})}}>
                     <Card.Img src={item.image} alt="Card image" />
                 
@@ -281,7 +312,7 @@ function Movies(){
 
                 }
                 </Row>
-        </div>
+        </div> */}
 
     </div>
     )
