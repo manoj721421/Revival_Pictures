@@ -264,7 +264,7 @@ function Movies(){
                 toggle.map((item)=>
                 <Col xs={5} md={3} lg={2} className="px-0">
                 <Row className="justify-content-center ">
-                <Card className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem"}} >
+                <Card className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem"}} onClick={()=>{history.push({pathname:"/mdata",search:item.externals.imdb})}}>
                 <Card.Img src={item.image.medium} alt="Card image" />
                
                 <div className="row justify-content-center info">
