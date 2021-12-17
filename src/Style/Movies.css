@@ -94,7 +94,7 @@ small {
 
 .btns {
     position: relative;
-    z-index: 9999;
+    z-index: 99;
 }
 
 @media (max-width: 560px) {
