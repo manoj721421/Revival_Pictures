@@ -121,11 +121,11 @@ function Movies(){
         </Col>
         </Row>
 
-        <Row className="mt-2 justify-content-between mx-4 center" id="container" >
+        <Row className="mt-2 justify-content-between mx-3 center" id="container" >
                 {
                     upcoming?.map((item)=>
                             
-                            <Col className="px-3  ">
+                            <Col xs={6} md={3} lg={2} className="px-3  ">
                         <Card className="bg-dark text-white mb-3 zoom1" style={{width:"12rem"}} >
                         <Card.Img src={item.image.medium} alt="Card image" />
                        
@@ -156,7 +156,7 @@ function Movies(){
       </Row>
     
         <Row className="mt-2 justify-content-between mx-4">
-        <Col  className="p-0 zoom">
+        <Col xs={6} md={3} lg={2} className="p-0 zoom">
             <Card className="bg-dark text-white mb-3" style={{width:"12rem"}}>
             <Card.Img src={first} alt="Card image" />
             <Card.ImgOverlay className=""  style={{backgroundColor:"rgba(0,0,0,0.6)"}}>
@@ -232,10 +232,10 @@ function Movies(){
         </Col>
       </Row>
     
-        <Row className="mt-2 mx-4  center">
+        <Row className="mt-2 mx-3  center">
                 {
                 toggle.map((item)=>
-                    <Col   className="p-0  ">
+                    <Col xs={6} md={3} lg={2}  className="p-0  ">
                     <Card className="bg-dark text-white mb-3 zoom1" style={{width:"12rem"}} onClick={()=>{history.push({pathname:"/mdata",search:item.externals.imdb,id:item.id})}}>
                     <Card.Img src={item.image.medium} alt="Card image" />
                 
@@ -260,12 +260,12 @@ function Movies(){
         <Col  lg={2} md={2} xs={2}>
         <Button variant="danger">More Movies</Button>
         </Col>
-      </Row>
+      </Row> 7853 0056 1436 3988
     
-        <Row className="mt-2 mx-4  center">
+        <Row className="mt-2 mx-3  center">
                 {
                 movies.map((item)=>
-                    <Col   className="p-0  ">
+                    <Col xs={5} md={3} lg={2}  className="p-0  ">
                     <Card className="bg-dark text-white mb-3 zoom1" style={{width:"12rem"}} onClick={()=>{history.push({pathname:"/mdata",search:item.id})}}>
                     <Card.Img src={item.image} alt="Card image" />
                 
