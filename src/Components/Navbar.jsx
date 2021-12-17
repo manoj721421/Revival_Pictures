@@ -33,19 +33,22 @@ function Navbars() {
   const [search, setSearch] = useState([]);
   const [lgShow, setLgShow] = useState(false);
   const [print, setPrint] = useState(false);
+  const [data,setData] = useState();
   // let history = useHistory();
 
   function getData(e) {
     console.log(e.target.value);
+    setData(e.target.value);
+  }
 
-    let input = e.target.value;
+  function showData(){
+    let input = data;
     let len = input.length;
     console.log(len);
     if (len > 0) {
       setPrint(true);
-
       fetch(
-        ` http://www.omdbapi.com/?s=${e.target.value}&apikey=9f5e5150`
+        ` http://www.omdbapi.com/?s=${data}&apikey=9f5e5150`
       ).then((response) => {
         response.json().then((resp) => {
           setSearch(resp.Search);
@@ -65,7 +68,8 @@ function Navbars() {
             <Container fluid>
               <Navbar.Brand className="mx-2" as={Link} to={"/"}>
                 {" "}
-                <img src={logo} alt="logo" width="40px" />Revival Pictures
+                <img src={logo} alt="logo" width="40px" />
+                Revival Pictures
               </Navbar.Brand>
               <div>
                 <Button
@@ -150,16 +154,16 @@ function Navbars() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form className="">
+          <Form className="d-flex">
             <FormControl
               type="search"
               placeholder="Search"
-              className="me-2 w-100"
+              className="me-2 w-75"
               aria-label="Search"
               onChange={getData}
             />
+            <Button variant="success" className="w-25" onClick={showData}><i class="fas fa-search"></i></Button>
           </Form>
-          
 
           {print ? (
             <Row className="mt-2 justify-content-between mx-4">
