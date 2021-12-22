@@ -33,7 +33,7 @@ function Movies(){
       })
       fetch("https://imdb-api.com/en/API/MostPopularMovies/k_7si6m0ax").then((response)=>{
           response.json().then((resps)=>{
-              setMovies(resps.items);
+              setMovies(resps.items.slice(0,20));
               console.log(resps.items);
           })
       })
@@ -146,12 +146,12 @@ function Movies(){
         </Col>
         </Row>
 
-        <Row className="mt-2 justify-content-between mx-3 center" id="container" >
+        <div className="mt-2 justify-content-between center pt-3" id="container" >
                 {
                     upcoming?.map((item)=>
                             
-                            <Col xs={5} md={3} lg={2} className="px-0">
-                        <Row className="justify-content-center ">
+                            <div  className="mx-4">
+                        <Row className="justify-content-center  ">
                         <Card className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem",borderRadius:"15px"}} >
                         <Card.Img src={item.image.medium} alt="Card image" style={{borderRadius:"15px"}} />
                        
@@ -163,11 +163,11 @@ function Movies(){
 
                         </Card>
                           </Row>
-                        </Col>
+                        </div>
                      )
                 } 
                
-        </Row>
+        </div>
         </div>
 
 
@@ -184,7 +184,7 @@ function Movies(){
     
         <Row className="mt-2 justify-content-around mx-0">
         <Col xs={5} md={3} lg={2} className="p-0 zoom">
-            <Card className="bg-dark text-white mb-3" style={{width:"12rem"}}>
+            <Card className="bg-dark text-white mb-3" style={{width:"11rem"}}>
             <Card.Img src={first} alt="Card image" />
             <Card.ImgOverlay className=""  style={{backgroundColor:"rgba(0,0,0,0.6)"}}>
                
@@ -195,7 +195,7 @@ function Movies(){
           
           
           <Col  xs={5} md={4} lg={2} className="p-0">
-            <Card className="bg-dark text-white mb-3 zoom" style={{width:"12rem"}}>
+            <Card className="bg-dark text-white mb-3 zoom" style={{width:"11rem"}}>
             <Card.Img src={first} alt="Card image" />
             <Card.ImgOverlay className="mt-0" style={{backgroundColor:"rgba(0,0,0,0.6)"}} >
                
@@ -205,7 +205,7 @@ function Movies(){
             </Col>
 
             <Col  xs={5} md={4} lg={2} className="p-0">
-            <Card className="bg-dark text-white mb-3 zoom" style={{width:"12rem"}}>
+            <Card className="bg-dark text-white mb-3 zoom" style={{width:"11rem"}}>
             <Card.Img src={third} alt="Card image" />
             <Card.ImgOverlay className="mt-0" style={{backgroundColor:"rgba(0,0,0,0.6)"}}>
                 <Card.Title className="mt-5"><i class="far fa-play-circle line"></i> Card title</Card.Title>
@@ -214,7 +214,7 @@ function Movies(){
             </Col>
 
             <Col  xs={5} md={4} lg={2} className="p-0">
-            <Card className="bg-dark text-white mb-3 zoom"  style={{width:"12rem"}}>
+            <Card className="bg-dark text-white mb-3 zoom"  style={{width:"11rem"}}>
            
             <Card.Img src={first} alt="Card image" />
             <Card.ImgOverlay className="mt-0" style={{backgroundColor:"rgba(0,0,0,0.6)"}}>
@@ -225,7 +225,7 @@ function Movies(){
             </Col>
 
             <Col   xs={5} md={4}lg={2}  className="p-0">
-            <Card className="bg-dark text-white mb-3 zoom" style={{width:"12rem"}} >
+            <Card className="bg-dark text-white mb-3 zoom" style={{width:"11rem"}} >
          
             <Card.Img src={second} alt="Card image" />
             <Card.ImgOverlay className="mt-0 " style={{backgroundColor:"rgba(0,0,0,0.6)"}}>
@@ -236,7 +236,7 @@ function Movies(){
             </Col>
 
             <Col  xs={5} md={4} lg={2} className="p-0">
-            <Card className="bg-dark text-white mb-3 zoom" style={{width:"12rem"}} >
+            <Card className="bg-dark text-white mb-3 zoom" style={{width:"11rem"}} >
          
             <Card.Img src={third} alt="Card image" />
             <Card.ImgOverlay className="mt-0" style={{backgroundColor:"rgba(0,0,0,0.6)"}}>
@@ -252,17 +252,17 @@ function Movies(){
     <div>
     <Row className=" mt-5 d-flex justify-content-between  w-100">
         <Col lg={2} md={4} xs={6}>
-        <h5 className="text-white border-bottom  mx-3">Upcoming Movies</h5>
+        <h5 className="text-white border-bottom  mx-3">Web Series</h5>
         </Col>
         <Col  lg={2} md={4} xs={6}>
         <Button variant="danger">More Movies</Button>
         </Col>
         </Row>
     
-        <Row className="mt-2 justify-content-between mx-3 center" id="container">
+        <div className="mt-2 justify-content-between center pt-3   " id="container">
                 {
                 toggle.map((item)=>
-                <Col xs={5} md={3} lg={2} className="px-0">
+                <div  className="mx-4">
                 <Row className="justify-content-center ">
                 <Card className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem" , borderRadius:"15px"}} onClick={()=>{history.push({pathname:"/mdata",search:item.externals.imdb})}}>
                 <Card.Img src={item.image.medium} alt="Card image" style={{borderRadius:"15px"}} />
@@ -275,11 +275,11 @@ function Movies(){
 
                 </Card>
                   </Row>
-                </Col>
+                </div>
                 )
 
                 }
-                </Row>
+                </div>
         </div>
 
 
@@ -295,10 +295,10 @@ function Movies(){
         </Col>
         </Row>
     
-        <Row className="mt-2 mx-3 justify-content-between center">
+        <div className="mt-2 mx-3 justify-content-between center pt-3">
                 {
                 movies.map((item)=>
-                    <Col xs={5} md={3} lg={2}  className="px-0  ">
+                    <Col className="mx-4">
                       <Row className="justify-content-center ">
                     <Card className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem",borderRadius:"15px"}} onClick={()=>{history.push({pathname:"/mdata",search:item.id})}}>
                     <Card.Img src={item.image} alt="Card image" style={{borderRadius:"15px"}}/>
@@ -315,7 +315,7 @@ function Movies(){
                 )
 
                 }
-                </Row>
+                </div>
         </div>
 
     </div>

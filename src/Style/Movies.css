@@ -37,6 +37,16 @@ small {
     z-index: 9999;
 }
 
+.center {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+.center::-webkit-scrollbar {
+    display: none;
+}
+
 .zoom1 {
     position: relative;
     transition: transform .5s ease-in-out;

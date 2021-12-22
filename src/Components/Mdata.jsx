@@ -7,7 +7,7 @@ export default function Mdata(props){
     let history = useHistory();
      const [src, setSrc] = useState('https://www.omdbapi.com/?i='+history.location.search.slice(1)+'&plot=short&apikey=9f5e5150')
      const [data,setData] = useState({});
-     const [url,setUrl] = useState('https://api.tvmaze.com/shows/'+history.location.id+'/seasons')
+     const [url,setUrl] = useState('https://api.tvmaze.com/shows')
     let BaseUrl = {src};
     let baseUrl = {url};
     console.log(history.location.id);
@@ -50,36 +50,36 @@ export default function Mdata(props){
                         <p className="mb-3 text-secondary" style={{textAlign: 'center'}}>{data.Plot}</p>   
                        </Col>  
                         <div>
-                            <div className="d-flex text-white">
-                            <h5 className="m-0  px-2 "><span className="text-danger">Genre : </span>{data.Genre}</h5>
-                            <h5><span className="text-danger">Playtime:</span> {data.Runtime}</h5>
+                            <div className="d-flex text-white text-center">
+                            <h5 className="m-0  px-2 ">&nbsp;&nbsp;{data.Genre}</h5> |
+                            <h5>&nbsp; {data.Runtime}</h5>
                             </div>
                             
-                            <Row className="text-white mt-4">
+                            <Row className="text-white mt-3">
                             <Col>
                             <div>
-                                <h4>Actors</h4>
-                                <p className="m-o">{data.Actors}</p>
+                                <h5>Actors</h5>
+                                <small className="m-o">{data.Actors}</small>
                             </div>
                             </Col>
                             <Col>
                             <div>
-                                <h4>Director</h4>
-                                <p className="m-o">{data.Director}</p>
+                                <h5>Director</h5>
+                                <small className="m-o">{data.Director}</small>
                             </div>
                             </Col>
                             <Col>
                             <div>
-                                <h4>Writer</h4>
-                                <p className="m-o">{data.Writer}</p>
+                                <h5>Writer</h5>
+                                <small className="m-o">{data.Writer}</small>
                             </div>
                             </Col>
                          </Row>
 
                             <div className="d-flex px-3 ">
-                                <h5 className="  text-danger">{data.Rated}</h5>
-                                <h5 className=" px-5 text-white ">{data.Year}</h5>
-                                <h5 className="  text-white">Ratings-{data.imdbRating}<i class="fas fa-heart text-danger mt-1 mx-1"></i></h5>
+                                <h4 className="  text-danger">{data.Rated}</h4>
+                                <h4 className=" px-5 text-white ">{data.Year}</h4>
+                                <h4 className="  text-white"><i class="fas fa-star text-warning"></i> {data.imdbRating} <i class="fab fa-imdb text-warning"></i></h4>
                             </div>
                         </div>
                        
@@ -98,6 +98,8 @@ export default function Mdata(props){
               </Col>
         </Row>
           </div>
+
+          
         
         </>
     )
