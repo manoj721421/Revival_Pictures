@@ -3,12 +3,6 @@ ul {
     padding-left: 30px;
 }
 
-li {
-    padding: 20px;
-    color: white;
-    font-weight: bold;
-}
-
 .content {
     display: block;
     justify-content: start;
@@ -16,4 +10,17 @@ li {
 
 .bold {
     font-weight: 900;
+}
+
+li {
+    color: white;
+    font-weight: bold;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+@media (max-width: 768px) {
+    li {
+        padding: 8px;
+    }
 }

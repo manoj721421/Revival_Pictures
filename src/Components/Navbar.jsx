@@ -28,6 +28,7 @@ import Mdata from "./Mdata.jsx";
 import logo from "../assets/popcorn.png";
 import Login from "./Login.jsx";
 import history from "./history";
+import AllMovie from './AllMovies';
 
 function Navbars() {
   const [search, setSearch] = useState([]);
@@ -121,7 +122,7 @@ function Navbars() {
 
         <div>
           <Switch>
-            {/* <Route path="/"><First/> </Route> */}
+         
             <Route exact path="/" component={() => <Redirect to="/Home" />} />
             <Route path="/login">
               <Login />{" "}
@@ -137,6 +138,15 @@ function Navbars() {
             </Route>
             <Route path="/mdata">
               <Mdata />
+            </Route>
+            <Route path="/allMovies">
+              <AllMovie />
+            </Route>
+            <Route path="/Revival_Pictures">
+              <Home />
+            </Route>
+            <Route path="*">
+              <AllMovie />
             </Route>
           </Switch>
         </div>
