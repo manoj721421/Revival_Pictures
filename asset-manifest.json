@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Revival_Pictures/static/css/main.94082854.chunk.css",
-    "main.js": "/Revival_Pictures/static/js/main.59c25e91.chunk.js",
-    "main.js.map": "/Revival_Pictures/static/js/main.59c25e91.chunk.js.map",
+    "main.css": "/Revival_Pictures/static/css/main.9f8884e3.chunk.css",
+    "main.js": "/Revival_Pictures/static/js/main.f3a42793.chunk.js",
+    "main.js.map": "/Revival_Pictures/static/js/main.f3a42793.chunk.js.map",
     "runtime-main.js": "/Revival_Pictures/static/js/runtime-main.303f359a.js",
     "runtime-main.js.map": "/Revival_Pictures/static/js/runtime-main.303f359a.js.map",
     "static/css/2.0a9ec390.chunk.css": "/Revival_Pictures/static/css/2.0a9ec390.chunk.css",
-    "static/js/2.4387d150.chunk.js": "/Revival_Pictures/static/js/2.4387d150.chunk.js",
-    "static/js/2.4387d150.chunk.js.map": "/Revival_Pictures/static/js/2.4387d150.chunk.js.map",
+    "static/js/2.5268be43.chunk.js": "/Revival_Pictures/static/js/2.5268be43.chunk.js",
+    "static/js/2.5268be43.chunk.js.map": "/Revival_Pictures/static/js/2.5268be43.chunk.js.map",
     "static/js/3.960a5779.chunk.js": "/Revival_Pictures/static/js/3.960a5779.chunk.js",
     "static/js/3.960a5779.chunk.js.map": "/Revival_Pictures/static/js/3.960a5779.chunk.js.map",
     "index.html": "/Revival_Pictures/index.html",
     "static/css/2.0a9ec390.chunk.css.map": "/Revival_Pictures/static/css/2.0a9ec390.chunk.css.map",
-    "static/css/main.94082854.chunk.css.map": "/Revival_Pictures/static/css/main.94082854.chunk.css.map",
-    "static/js/2.4387d150.chunk.js.LICENSE.txt": "/Revival_Pictures/static/js/2.4387d150.chunk.js.LICENSE.txt",
+    "static/css/main.9f8884e3.chunk.css.map": "/Revival_Pictures/static/css/main.9f8884e3.chunk.css.map",
+    "static/js/2.5268be43.chunk.js.LICENSE.txt": "/Revival_Pictures/static/js/2.5268be43.chunk.js.LICENSE.txt",
     "static/media/connect.893fe0a3.png": "/Revival_Pictures/static/media/connect.893fe0a3.png",
     "static/media/dc.5127c73c.jpg": "/Revival_Pictures/static/media/dc.5127c73c.jpg",
     "static/media/flash.42983fdc.jpg": "/Revival_Pictures/static/media/flash.42983fdc.jpg",
@@ -25,8 +25,8 @@
   "entrypoints": [
     "static/js/runtime-main.303f359a.js",
     "static/css/2.0a9ec390.chunk.css",
-    "static/js/2.4387d150.chunk.js",
-    "static/css/main.94082854.chunk.css",
-    "static/js/main.59c25e91.chunk.js"
+    "static/js/2.5268be43.chunk.js",
+    "static/css/main.9f8884e3.chunk.css",
+    "static/js/main.f3a42793.chunk.js"
   ]
 }
