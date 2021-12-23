@@ -14,7 +14,7 @@ export default function AllMovie(){
                 setAll(resps.items.slice(0,20))
             })
         })
-        fetch("http://api.themoviedb.org/3/discover/movie?api_key=1268590fd0b518ebdddbeb4a3e70199c&sort_by=popularity.desc").then((response)=>{
+        fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=1268590fd0b518ebdddbeb4a3e70199c").then((response)=>{
             response.json().then((resp)=>{
                 console.warn(resp)
               

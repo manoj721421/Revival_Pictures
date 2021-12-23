@@ -171,8 +171,9 @@ function Navbars() {
               className="me-2 w-75"
               aria-label="Search"
               onChange={getData}
+              onTouchend={getData}
             />
-            <Button variant="success" className="w-25" onClick={showData}><i class="fas fa-search"></i></Button>
+            <Button variant="success" className="w-25" onClick={showData} onTouchstart={showData} ><i class="fas fa-search"></i></Button>
           </Form>
 
           {print ? (
