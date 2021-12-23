@@ -177,16 +177,16 @@ function Movies(){
 
 
     <div>
-      <Row className=" mt-5 mx-0 d-flex justify-content-between w-100">
+      <Row className=" mt-5  d-flex justify-content-between w-100">
         <Col lg={2} md={4} xs={6}>
         <h5 className="text-white border-bottom ">Recently Added</h5>
         </Col>
         <Col  lg={2} md={2} xs={2}>
-        <Row className="justify-content-end me-2"> 
-            <Col lg={2} md={2} xs={2} >
-              <Button variant="danger" onClick={()=>{history.push("/allMovies")}}><i class="fas fa-chevron-right"></i></Button>
-            </Col>
-          </Row>
+          <Row className="justify-content-end me-2"> 
+              <Col lg={2} md={2} xs={2} >
+                <Button variant="danger" onClick={()=>{history.push("/allMovies")}}><i class="fas fa-chevron-right"></i></Button>
+              </Col>
+            </Row>
         </Col>
       </Row>
     
