@@ -1,6 +1,5 @@
 ul {
     list-style-type: none;
-    padding-left: 30px;
 }
 
 .content {
@@ -17,6 +16,19 @@ li {
     font-weight: bold;
     padding-left: 30px;
     padding-right: 30px;
+}
+
+.blurry {
+    width: 100%;
+    backdrop-filter: blur(10px);
+    /* background-color: black;
+    opacity: 0.9; */
+}
+
+.plot {
+    text-align: center;
+    color: white;
+    mix-blend-mode: difference;
 }
 
 @media (max-width: 768px) {

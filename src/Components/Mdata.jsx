@@ -33,70 +33,67 @@ export default function Mdata(props){
     },[])
     return(
         <>
-        <div className="bg " style={{backgroundImage: `url(${data.Poster})`, backgroundRepeat:' no-repeat',backgroundPosition: 'center', backgroundSize: 'cover'}}>
-              <Row className="py-4 mx-0" style={{backgroundColor: '#121212', opacity:0.9,width: '100%'}}>
-              <Col xs={12}  md={6} className="p-0 px-5 py-5">
-                    <Row className=" px-5 ">
+        <div className="bg" style={{backgroundImage: `url(${data.Poster})`, backgroundRepeat:' no-repeat',backgroundPosition: 'center', backgroundSize: 'cover'}}>
+            <Row className="py-5 mx-0 blurry" >
+            <Col  className="p-0">
+                        <div className="mt-5 pt-2">
+                            <img src={data.Poster} alt="" style={{opacity:"1"}} />
+                        </div>
+                </Col>
+                <Col xs={12}  md={6} className="p-0 px-4 py-5">
+                    <Row className=" px- ">
                         <h1 className="text-white mb-3 bold" >{data.Title}</h1>
                        
-                       <Col >
-                       {/* <ul className=" d-flex justify-content-center px-0 ">
-                            <li className="text-danger">Overview</li>
-                            <li>Episodes</li>
-                            <li>Trailer</li>
-                            <li>Details</li>
-                            <li>More</li>
-                        </ul> */}
-                        <p className="mb-3 text-secondary" style={{textAlign: 'center'}}>{data.Plot}</p>   
-                       </Col>  
-                        <div>
-                            <div className="d-flex text-white text-center">
-                            <h5 className="m-0  px-2 ">&nbsp;&nbsp;{data.Genre}</h5> |
-                            <h5>&nbsp; {data.Runtime}</h5>
+                            <Col >
+                            
+                                <p className="mb-3 plot " >{data.Plot}</p>   
+                            </Col>  
+
+                            <div>
+                                <div className="d-flex text-white text-center">
+                                <h5 className="m-0  px-2 ">&nbsp;&nbsp;{data.Genre}</h5> |
+                                <h5>&nbsp; {data.Runtime}</h5>
                             </div>
                             
+                                
                             <Row className="text-white mt-3">
-                            <Col>
-                            <div>
-                                <h5>Actors</h5>
-                                <small className="m-o">{data.Actors}</small>
-                            </div>
-                            </Col>
-                            <Col>
-                            <div>
-                                <h5>Director</h5>
-                                <small className="m-o">{data.Director}</small>
-                            </div>
-                            </Col>
-                            <Col>
-                            <div>
-                                <h5>Writer</h5>
-                                <small className="m-o">{data.Writer}</small>
-                            </div>
-                            </Col>
-                         </Row>
+                                <Col>
+                                    <div>
+                                        <h5>Actors</h5>
+                                        <small className="m-o">{data.Actors}</small>
+                                    </div>
+                                </Col>
+                                <Col>
+                                    <div>
+                                        <h5>Director</h5>
+                                        <small className="m-o">{data.Director}</small>
+                                    </div>
+                                </Col>
+                                <Col>
+                                    <div>
+                                        <h5>Writer</h5>
+                                        <small className="m-o">{data.Writer}</small>
+                                    </div>
+                                </Col>
+                            </Row>
 
-                            <div className="d-flex px-3 ">
+                            <div className="d-flex px-3 mt-2">
                                 <h4 className="  text-danger">{data.Rated}</h4>
                                 <h4 className=" px-5 text-white ">{data.Year}</h4>
                                 <h4 className="  text-white"><i class="fas fa-star text-warning"></i> {data.imdbRating} <i class="fab fa-imdb text-warning"></i></h4>
                             </div>
                         </div>
                        
-                        <div className="d-flex px-4 mt-3">
+                        <div className="d-flex px-4 mt-5">
                             <Button variant="danger" className="px-5 rounded-pill" onClick={()=>{history.push({pathname:"/contact",search:data.imdbID})}}>Watch Now</Button>
                             <Button variant="outline-danger mx-3 px-4" className="rounded-pill text-white">+ My List</Button>
                         </div>
 
                         
                     </Row>
-              </Col>
-              <Col  className="p-0">
-                    <div className="mt-5 pt-2">
-                        <img src={data.Poster} alt="" style={{opacity:"1"}} />
-                    </div>
-              </Col>
-        </Row>
+                </Col>
+              
+            </Row>
           </div>
 
           

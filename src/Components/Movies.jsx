@@ -31,7 +31,7 @@ function Movies(){
               console.log(resp);
           })
       })
-      fetch("https://imdb-api.com/en/API/MostPopularMovies/k_7si6m0ax").then((response)=>{
+      fetch("https://imdb-api.com/en/API/MostPopularMovies/k_8vvz46wi").then((response)=>{
           response.json().then((resps)=>{
               setMovies(resps.items.slice(0,20));
               console.log(resps.items);
@@ -39,7 +39,7 @@ function Movies(){
       })
     },[])
     return(
-        <div className="pt-4" style={{backgroundColor: '#121212'}}>
+        <div className="pt-4" style={{backgroundColor: 'black'}}>
         <Carousel  indicators={false} controls={false} >
 
             <Carousel.Item interval={6000} >
@@ -53,14 +53,14 @@ function Movies(){
                 <small className=" text-white">Action . 1hr 23min . 2021</small><br/>
                   <small className ="hide">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores at </small> 
                   <Row className="d-flex justify-content-around mt-3 btns">
-                    <Col lg={3} md={2} xs={3} className="p-0">
-                      <Button variant="danger" className=" px-3  " onClick ={()=>{history.push("/contact")}} ><i class="fas fa-play-circle"></i> Play</Button>
+                    <Col lg={3} md={2} xs={2} className="p-0">
+                      <Button variant="danger" className="" onClick ={()=>{history.push("/contact")}} ><i class="fas fa-play-circle"></i> <span className="none">Play</span></Button>
                       </Col>
-                      <Col lg={4} md={2} xs={3} className="p-0 ">
-                      <Button variant="outline-danger" className="  text-white"><i class="fas fa-info-circle"></i> Watch Trailer</Button>      
+                      <Col lg={4} md={2} xs={2} className="p-0 ">
+                      <Button variant="outline-danger" className="  text-white"><i class="fas fa-info-circle"></i> <span className="none">Watch Trailer</span> </Button>      
                       </Col>
-                      <Col lg={3} md={2} xs={3} className="p-0 ">
-                      <Button variant="danger" className=""><i class="fas fa-plus"></i> Watchlist</Button> 
+                      <Col lg={3} md={2} xs={2} className="p-0 ">
+                      <Button variant="danger" className=""><i class="fas fa-plus"></i> <span className="none">Watchlist</span></Button> 
                       </Col>
                   </Row>   
                     </div>
@@ -85,13 +85,13 @@ function Movies(){
                   <small className ="hide">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores at </small> 
                   <Row className="d-flex justify-content-around mt-3 btns">
                     <Col lg={3} md={2} xs={3} className="p-0">
-                      <Button variant="danger" className=" px-3  " onClick ={()=>{history.push("/contact")}} ><i class="fas fa-play-circle"></i> Play</Button>
+                      <Button variant="danger" className=" px-2  " onClick ={()=>{history.push("/contact")}} ><i class="fas fa-play-circle"></i> <span className="none">Play</span></Button>
                       </Col>
                       <Col lg={4} md={2} xs={3} className="p-0 ">
-                      <Button variant="outline-danger" className="  text-white"><i class="fas fa-info-circle"></i> Watch Trailer</Button>      
+                      <Button variant="outline-danger" className="  text-white"><i class="fas fa-info-circle"></i> <span className="none">Watch Trailer</span></Button>      
                       </Col>
                       <Col lg={3} md={2} xs={3} className="p-0 ">
-                      <Button variant="danger" className=""><i class="fas fa-plus"></i> Watchlist</Button> 
+                      <Button variant="danger" className=""><i class="fas fa-plus"></i> <span className="none">Watchlist</span></Button> 
                       </Col>
                   </Row>   
                     </div>
@@ -116,13 +116,13 @@ function Movies(){
                   <small className ="hide">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores at </small> 
                   <Row className="d-flex justify-content-around mt-3 btns">
                     <Col lg={3} md={2} xs={3} className="p-0">
-                      <Button variant="danger" className=" px-3  " onClick ={()=>{history.push("/contact")}} ><i class="fas fa-play-circle"></i> Play</Button>
+                      <Button variant="danger" className=" px-2  " onClick ={()=>{history.push("/contact")}} ><i class="fas fa-play-circle"></i> <span className="none">Play</span></Button>
                       </Col>
                       <Col lg={4} md={2} xs={3} className="p-0 ">
-                      <Button variant="outline-danger" className="  text-white"><i class="fas fa-info-circle"></i> Watch Trailer</Button>      
+                      <Button variant="outline-danger" className="  text-white"><i class="fas fa-info-circle"></i> <span className="none">Watch Trailer</span></Button>      
                       </Col>
                       <Col lg={3} md={2} xs={3} className="p-0 ">
-                      <Button variant="danger" className=""><i class="fas fa-plus"></i> Watchlist</Button> 
+                      <Button variant="danger" className=""><i class="fas fa-plus"></i> <span className="none">Watchlist</span></Button> 
                       </Col>
                   </Row>   
                     </div>
@@ -139,10 +139,14 @@ function Movies(){
       <div>
       <Row className=" mt-5 d-flex justify-content-between  w-100">
         <Col lg={2} md={4} xs={6}>
-        <h5 className="text-white border-bottom  mx-3">Upcoming Movies</h5>
+        <p className="text-white border-bottom  mx-3">Upcoming Movies</p>
         </Col>
-        <Col  lg={2} md={4} xs={6}>
-        <Button variant="danger" onClick={()=>{history.push("/allMovies")}}>More Movies</Button>
+        <Col  lg={2} md={2} xs={2} >
+          <Row className="justify-content-end me-2"> 
+            <Col lg={2} md={2} xs={2} >
+              <Button variant="danger" onClick={()=>{history.push("/allMovies")}}><i class="fas fa-chevron-right"></i></Button>
+            </Col>
+          </Row>
         </Col>
         </Row>
 
@@ -174,11 +178,15 @@ function Movies(){
 
     <div>
       <Row className=" mt-5 mx-0 d-flex justify-content-between w-100">
-        <Col lg={2} md={4} xs={5}>
-        <h5 className="text-white border-bottom  mx-3">Recently Added</h5>
+        <Col lg={2} md={4} xs={6}>
+        <h5 className="text-white border-bottom ">Recently Added</h5>
         </Col>
-        <Col  lg={2} md={4} xs={6}>
-        <Button variant="danger">More Movies</Button>
+        <Col  lg={2} md={2} xs={2}>
+        <Row className="justify-content-end me-2"> 
+            <Col lg={2} md={2} xs={2} >
+              <Button variant="danger" onClick={()=>{history.push("/allMovies")}}><i class="fas fa-chevron-right"></i></Button>
+            </Col>
+          </Row>
         </Col>
       </Row>
     
@@ -254,8 +262,12 @@ function Movies(){
         <Col lg={2} md={4} xs={6}>
         <h5 className="text-white border-bottom  mx-3">Web Series</h5>
         </Col>
-        <Col  lg={2} md={4} xs={6}>
-        <Button variant="danger">More Movies</Button>
+        <Col  lg={2} md={2} xs={2}>
+        <Row className="justify-content-end me-2"> 
+            <Col lg={2} md={2} xs={2} >
+              <Button variant="danger" onClick={()=>{history.push("/allMovies")}}><i class="fas fa-chevron-right"></i></Button>
+            </Col>
+          </Row>
         </Col>
         </Row>
     
@@ -290,12 +302,16 @@ function Movies(){
         <Col lg={2} md={4} xs={6}>
         <h5 className="text-white border-bottom  mx-3">Popular Movies</h5>
         </Col>
-        <Col  lg={2} md={4} xs={6}>
-        <Button variant="danger">More Movies</Button>
+        <Col  lg={2} md={2} xs={2}>
+        <Row className="justify-content-end me-2"> 
+            <Col lg={2} md={2} xs={2} >
+              <Button variant="danger" onClick={()=>{history.push("/allMovies")}}><i class="fas fa-chevron-right"></i></Button>
+            </Col>
+          </Row>
         </Col>
         </Row>
     
-        <div className="mt-2 mx-3 justify-content-between center pt-3">
+        <div className="mt-2  justify-content-between center pt-3">
                 {
                 movies.map((item)=>
                     <Col className="mx-4">
