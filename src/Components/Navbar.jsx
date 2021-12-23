@@ -42,6 +42,10 @@ function Navbars() {
     setData(e.target.value);
   }
 
+  function showInfo(){
+    alert("screen touched")
+  }
+
   function showData(){
     let input = data;
     let len = input.length;
@@ -173,7 +177,7 @@ function Navbars() {
               onChange={getData}
               onTouchend={getData}
             />
-            <Button variant="success" className="w-25" onClick={showData} onTouchstart={showData} ><i class="fas fa-search"></i></Button>
+            <Button variant="success" className="w-25" onClick={showData}  onTouchstart={showInfo} ><i class="fas fa-search"></i></Button>
           </Form>
 
           {print ? (
