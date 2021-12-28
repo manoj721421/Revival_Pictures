@@ -5,6 +5,7 @@ import {
   Route,
   Link,
   Switch,
+  
 } from "react-router-dom";
 import {
   Navbar,
@@ -35,6 +36,7 @@ function Navbars() {
   const [lgShow, setLgShow] = useState(false);
   const [print, setPrint] = useState(false);
   const [data,setData] = useState();
+
   // let history = useHistory();
 
   function getData(e) {
@@ -76,17 +78,19 @@ function Navbars() {
                 <img src={logo} alt="logo" width="40px" />
                 Revival Pictures
               </Navbar.Brand>
-              <div>
-                <Button
-                  variant="muted me-2"
-                  onClick={() => {
-                    setLgShow(true);
-                  }}
-                >
-                  <i class="fas fa-search text-white"></i>
-                </Button>
-                <Navbar.Toggle aria-controls="offcanvasNavbar" />
-              </div>
+                  <div class="d-flex">
+                    <Nav.Link variant="muted me-2"  onClick={() => {
+                        setLgShow(true);
+                      }}>
+                      <i class="fas fa-search text-white" style={{fontSize:"1.5rem"}}></i>
+                      
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/login">
+                      <i class="fas fa-user-circle text-white" style={{fontSize:"1.5rem"}}></i>
+                    </Nav.Link>
+                  
+                    <Navbar.Toggle aria-controls="offcanvasNavbar" />
+                  </div>
               <Navbar.Offcanvas
                 id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel"
@@ -104,6 +108,9 @@ function Navbars() {
                     </Nav.Link>
                     <Nav.Link as={Link} to={"/about"}>
                       About
+                    </Nav.Link>
+                    <Nav.Link as={Link} to={"/login"}>
+                      Login
                     </Nav.Link>
                     <NavDropdown title="Dropdown" id="offcanvasNavbarDropdown">
                       <NavDropdown.Item href="#action3">
@@ -140,76 +147,54 @@ function Navbars() {
             <Route path="/contact">
               <Player />
             </Route>
-            <Route path="/mdata">
+            <Route path="/mdata/:id">
               <Mdata />
             </Route>
-            <Route path="/allMovies">
-              <AllMovie />
-            </Route>
-            <Route path="/Revival_Pictures">
-              <Home />
-            </Route>
-            <Route path="*">
-              <AllMovie />
-            </Route>
+            <Route path="/allMovies">  <AllMovie /> </Route>
+            <Route path="/login"> <Login /></Route>
+            <Route path="/Revival_Pictures">  <Home /> </Route>
+            <Route path="*"> <AllMovie /> </Route>
           </Switch>
         </div>
+
+
+
+        <Modal size="lg" show={lgShow}  onHide={() => setLgShow(false)} aria-labelledby="example-modal-sizes-title-lg">
+          <Modal.Header closeButton>
+            <Modal.Title id="example-modal-sizes-title-lg">
+              <h3>Search Movies/series</h3>
+            </Modal.Title>
+              </Modal.Header>
+             <Modal.Body>
+                    <Form className="d-flex">
+                      <FormControl type="search"  placeholder="Search"  className="me-2 w-75"  aria-label="Search"  onChange={getData}  onTouchend={getData}/>
+                      <Button variant="success" className="w-25" onClick={showData}  onTouchstart={showInfo} ><i class="fas fa-search"></i></Button>
+                    </Form>
+
+                    {print ? (
+                      <Row className="mt-2 justify-content-between mx-4">
+                        {search?.map((item) => (
+                          <Col className="p-0 ">
+                            <Nav.Link as={Link} to={`/mdata/${item.imdbID}`}>
+                            <Card className=" text-white mb-3 zoom1"  style={{ width: "12rem" }}  onClick={()=>{setLgShow(false)}}>
+                              <Card.Img src={item.Poster} alt="Card image"  />
+
+                              <div className="row justify-content-center info  mx-3">
+                                <i class="far fa-play-circle" style={{ fontSize: "2rem" }}></i>
+                                <p className="m-0">{item.Title}</p>
+                                <small style={{ fontSize: "0.6rem" }}>{item.Year} . {item.Type} . {item.imdbID}</small>
+                              </div>
+                            </Card>
+                            </Nav.Link>
+                          </Col>
+                        ))}
+                        </Row>
+                      ) : null}
+              </Modal.Body>
+            </Modal>
       </Router>
 
-      <Modal
-        size="lg"
-        show={lgShow}
-        onHide={() => setLgShow(false)}
-        aria-labelledby="example-modal-sizes-title-lg"
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="example-modal-sizes-title-lg">
-            <h3>Search Movies/series</h3>
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form className="d-flex">
-            <FormControl
-              type="search"
-              placeholder="Search"
-              className="me-2 w-75"
-              aria-label="Search"
-              onChange={getData}
-              onTouchend={getData}
-            />
-            <Button variant="success" className="w-25" onClick={showData}  onTouchstart={showInfo} ><i class="fas fa-search"></i></Button>
-          </Form>
-
-          {print ? (
-            <Row className="mt-2 justify-content-between mx-4">
-              {search?.map((item) => (
-                <Col className="p-0 ">
-                  <Card
-                    className=" text-white mb-3 zoom1"
-                    style={{ width: "12rem" }}
-                    onClick={() =>
-                      history.push({ pathname: "/mdata", search: item.imdbID })
-                    }
-                  >
-                    <Card.Img src={item.Poster} alt="Card image" />
-
-                    <div className="row justify-content-center info  mx-3">
-                      <i
-                        class="far fa-play-circle"
-                        style={{ fontSize: "2rem" }}
-                      ></i>
-                      <p className="m-0">{item.Title}</p>
-                      <small style={{ fontSize: "0.6rem" }}>
-                        {item.Year} . {item.Type} . {item.imdbID}
-                      </small>
-                    </div>
-                  </Card>
-                </Col>
-              ))}
-            </Row>
-          ) : null}
-        </Modal.Body>
-      </Modal>
+      
     </div>
   );
 }

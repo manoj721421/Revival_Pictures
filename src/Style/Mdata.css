@@ -20,9 +20,9 @@ li {
 
 .blurry {
     width: 100%;
-    backdrop-filter: blur(10px);
-    /* background-color: black;
-    opacity: 0.9; */
+    /* backdrop-filter: blur(10px); */
+    background-color: black;
+    opacity: 0.9;
 }
 
 .plot {

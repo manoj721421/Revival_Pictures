@@ -5,29 +5,33 @@ import first from "../assets/dc.jpg";
 import second from "../assets/flash.jpg";
 import third from "../assets/things.jpg";
 import "../Style/Movies.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 function Movies(){
     const [toggle,setToggle] = useState([]);
     const[upcoming,setUpcoming] = useState([]);
     const[movies,setMovies] = useState([]);
-    const [lgShow,setLgShow] = useState(false)
     let history = useHistory();
 
 
 
 
     useEffect(()=>{
+      AOS.init({
+        duration : 1500
+      })
         fetch("https://api.tvmaze.com/shows").then((response)=>{
             response.json().then((resp)=>{
-                setToggle(resp.slice(20,32));
+                setToggle(resp.slice(40,60));
                 console.log(toggle);
             })
         })
   
         fetch("https://api.tvmaze.com/shows").then((response)=>{
           response.json().then((resp)=>{
-              setUpcoming(resp.slice(0,12));
+              setUpcoming(resp.slice(20,40));
               console.log(resp);
           })
       })
@@ -53,13 +57,13 @@ function Movies(){
                 <small className=" text-white">Action . 1hr 23min . 2021</small><br/>
                   <small className ="hide">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores at </small> 
                   <Row className="d-flex justify-content-around mt-3 btns">
-                    <Col lg={3} md={2} xs={2} className="p-0">
-                      <Button variant="danger" className="" onClick ={()=>{history.push("/contact")}} ><i class="fas fa-play-circle"></i> <span className="none">Play</span></Button>
+                    <Col lg={4} md={2} xs={2} className="p-0">
+                      <Button variant="danger" className="" onClick ={()=>{history.push("/contact")}} ><i class="fas fa-play-circle"></i> <span className="none">Play Now</span></Button>
                       </Col>
                       <Col lg={4} md={2} xs={2} className="p-0 ">
                       <Button variant="outline-danger" className="  text-white"><i class="fas fa-info-circle"></i> <span className="none">Watch Trailer</span> </Button>      
                       </Col>
-                      <Col lg={3} md={2} xs={2} className="p-0 ">
+                      <Col lg={4} md={2} xs={2} className="p-0 ">
                       <Button variant="danger" className=""><i class="fas fa-plus"></i> <span className="none">Watchlist</span></Button> 
                       </Col>
                   </Row>   
@@ -156,7 +160,7 @@ function Movies(){
                             
                             <div  className="mx-4">
                         <Row className="justify-content-center  ">
-                        <Card className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem",borderRadius:"15px"}} >
+                        <Card data-aos="fade-up" className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem",borderRadius:"15px"}} onClick={()=>{history.push({pathname:`/mdata/${item.externals.imdb}`,search:item.externals.imdb})}} >
                         <Card.Img src={item.image.medium} alt="Card image" style={{borderRadius:"15px"}} />
                        
                         <div className="row justify-content-center info">
@@ -276,7 +280,7 @@ function Movies(){
                 toggle.map((item)=>
                 <div  className="mx-4">
                 <Row className="justify-content-center ">
-                <Card className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem" , borderRadius:"15px"}} onClick={()=>{history.push({pathname:"/mdata",search:item.externals.imdb})}}>
+                <Card data-aos="fade-up" className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem" , borderRadius:"15px"}} onClick={()=>{history.push({pathname:`/mdata/${item.externals.imdb}`,search:item.externals.imdb})}}>
                 <Card.Img src={item.image.medium} alt="Card image" style={{borderRadius:"15px"}} />
                
                 <div className="row justify-content-center info">
@@ -316,7 +320,7 @@ function Movies(){
                 movies.map((item)=>
                     <Col className="mx-4">
                       <Row className="justify-content-center ">
-                    <Card className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem",borderRadius:"15px"}} onClick={()=>{history.push({pathname:"/mdata",search:item.id})}}>
+                    <Card data-aos="fade-up" className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem",borderRadius:"15px"}} onClick={()=>{history.push({pathname:`/mdata/${item.id}`,search:item.id})}}>
                     <Card.Img src={item.image} alt="Card image" style={{borderRadius:"15px"}}/>
                 
                     <div className="row justify-content-center info" >

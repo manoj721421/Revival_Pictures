@@ -1,20 +1,26 @@
 import React , {useEffect,useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import {useHistory , useParams} from 'react-router-dom';
 import {Row,Col,Button} from 'react-bootstrap';
-import "../Style/Mdata.css"
+import "../Style/Mdata.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Mdata(props){
     let history = useHistory();
-     const [src, setSrc] = useState('https://www.omdbapi.com/?i='+history.location.search.slice(1)+'&plot=short&apikey=9f5e5150')
+    let {id} = useParams();
+    console.log(id);
+     const [src, setSrc] = useState('https://www.omdbapi.com/?i='+id+'&plot=short&apikey=9f5e5150')
      const [data,setData] = useState({});
      const [url,setUrl] = useState('https://api.tvmaze.com/shows')
     let BaseUrl = {src};
     let baseUrl = {url};
-    console.log(history.location.id);
     console.log(baseUrl);
 
 
     useEffect(()=>{
+        AOS.init({   
+            duration: 2000
+          })
     console.log(BaseUrl);
         fetch(BaseUrl.src).then((response)=>{
             response.json().then((resp)=>{
@@ -36,17 +42,18 @@ export default function Mdata(props){
         <div className="bg" style={{backgroundImage: `url(${data.Poster})`, backgroundRepeat:' no-repeat',backgroundPosition: 'center', backgroundSize: 'cover'}}>
             <Row className="py-5 mx-0 blurry" >
             <Col  className="p-0">
-                        <div className="mt-5 pt-2">
-                            <img src={data.Poster} alt="" style={{opacity:"1"}} />
+                        <div className="mt-5 pt-2" data-aos="zoom-in"
+     >
+                            <img src={data.Poster} alt="" style={{opacity:"1",filter:"opacity(100%)"}} />
                         </div>
                 </Col>
                 <Col xs={12}  md={6} className="p-0 px-4 py-5">
                     <Row className=" px- ">
-                        <h1 className="text-white mb-3 bold" >{data.Title}</h1>
+                        <h1  className="text-white mb-3 bold" >{data.Title}</h1>
                        
                             <Col >
                             
-                                <p className="mb-3 plot " >{data.Plot}</p>   
+                                <p  className="mb-3 plot " >{data.Plot}</p>   
                             </Col>  
 
                             <div>
