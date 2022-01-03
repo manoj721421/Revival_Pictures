@@ -103,7 +103,7 @@ function Movies(){
                       </div>
                 </Col>
                 <Col xs={6} md={7} className = "p-0 faded">
-                  <img className=" " src={item.Image} alt="First slide" style={{borderRadius:"0 10px 10px 0",width:"100%",height:"400px"}} />
+                  <img className="c-Image" src={item.Image} alt="First slide" style={{}} />
                 </Col>
                 </Row>
                 </Card>

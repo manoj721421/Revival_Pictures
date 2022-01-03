@@ -130,6 +130,12 @@ small {
     display: block;
 }
 
+.c-Image {
+    border-radius: 0 10px 10px 0;
+    width: 100%;
+    height: 400px;
+}
+
 @media (max-width: 560px) {
     .text {
         font-size: 20px;
