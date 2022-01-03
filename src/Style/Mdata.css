@@ -8,7 +8,9 @@ ul {
 }
 
 .bold {
-    font-weight: 900;
+    font-family: 'Roboto Slab', serif;
+    font-size: 3rem;
+    font-weight: 500;
 }
 
 li {
@@ -29,6 +31,12 @@ li {
     text-align: center;
     color: white;
     mix-blend-mode: difference;
+}
+
+.center {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
 }
 
 @media (max-width: 768px) {
