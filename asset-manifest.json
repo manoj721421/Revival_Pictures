@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Revival_Pictures/static/css/main.543674d6.chunk.css",
-    "main.js": "/Revival_Pictures/static/js/main.927d3699.chunk.js",
-    "main.js.map": "/Revival_Pictures/static/js/main.927d3699.chunk.js.map",
+    "main.css": "/Revival_Pictures/static/css/main.9bf31500.chunk.css",
+    "main.js": "/Revival_Pictures/static/js/main.a94a24a8.chunk.js",
+    "main.js.map": "/Revival_Pictures/static/js/main.a94a24a8.chunk.js.map",
     "runtime-main.js": "/Revival_Pictures/static/js/runtime-main.d65def30.js",
     "runtime-main.js.map": "/Revival_Pictures/static/js/runtime-main.d65def30.js.map",
     "static/css/2.047300a4.chunk.css": "/Revival_Pictures/static/css/2.047300a4.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.5bd1af8d.chunk.js.map": "/Revival_Pictures/static/js/3.5bd1af8d.chunk.js.map",
     "index.html": "/Revival_Pictures/index.html",
     "static/css/2.047300a4.chunk.css.map": "/Revival_Pictures/static/css/2.047300a4.chunk.css.map",
-    "static/css/main.543674d6.chunk.css.map": "/Revival_Pictures/static/css/main.543674d6.chunk.css.map",
+    "static/css/main.9bf31500.chunk.css.map": "/Revival_Pictures/static/css/main.9bf31500.chunk.css.map",
     "static/js/2.8b616bdd.chunk.js.LICENSE.txt": "/Revival_Pictures/static/js/2.8b616bdd.chunk.js.LICENSE.txt",
     "static/media/About.css": "/Revival_Pictures/static/media/footer.82936c00.png",
     "static/media/about_bg2.0c8c4c76.svg": "/Revival_Pictures/static/media/about_bg2.0c8c4c76.svg",
@@ -25,7 +25,7 @@
     "static/js/runtime-main.d65def30.js",
     "static/css/2.047300a4.chunk.css",
     "static/js/2.8b616bdd.chunk.js",
-    "static/css/main.543674d6.chunk.css",
-    "static/js/main.927d3699.chunk.js"
+    "static/css/main.9bf31500.chunk.css",
+    "static/js/main.a94a24a8.chunk.js"
   ]
 }
