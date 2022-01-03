@@ -1,32 +1,31 @@
 {
   "files": {
-    "main.css": "/Revival_Pictures/static/css/main.ff798826.chunk.css",
-    "main.js": "/Revival_Pictures/static/js/main.d60e00e5.chunk.js",
-    "main.js.map": "/Revival_Pictures/static/js/main.d60e00e5.chunk.js.map",
-    "runtime-main.js": "/Revival_Pictures/static/js/runtime-main.c048ad21.js",
-    "runtime-main.js.map": "/Revival_Pictures/static/js/runtime-main.c048ad21.js.map",
+    "main.css": "/Revival_Pictures/static/css/main.543674d6.chunk.css",
+    "main.js": "/Revival_Pictures/static/js/main.927d3699.chunk.js",
+    "main.js.map": "/Revival_Pictures/static/js/main.927d3699.chunk.js.map",
+    "runtime-main.js": "/Revival_Pictures/static/js/runtime-main.d65def30.js",
+    "runtime-main.js.map": "/Revival_Pictures/static/js/runtime-main.d65def30.js.map",
     "static/css/2.047300a4.chunk.css": "/Revival_Pictures/static/css/2.047300a4.chunk.css",
-    "static/js/2.e106fef0.chunk.js": "/Revival_Pictures/static/js/2.e106fef0.chunk.js",
-    "static/js/2.e106fef0.chunk.js.map": "/Revival_Pictures/static/js/2.e106fef0.chunk.js.map",
-    "static/js/3.3c3656b7.chunk.js": "/Revival_Pictures/static/js/3.3c3656b7.chunk.js",
-    "static/js/3.3c3656b7.chunk.js.map": "/Revival_Pictures/static/js/3.3c3656b7.chunk.js.map",
+    "static/js/2.8b616bdd.chunk.js": "/Revival_Pictures/static/js/2.8b616bdd.chunk.js",
+    "static/js/2.8b616bdd.chunk.js.map": "/Revival_Pictures/static/js/2.8b616bdd.chunk.js.map",
+    "static/js/3.5bd1af8d.chunk.js": "/Revival_Pictures/static/js/3.5bd1af8d.chunk.js",
+    "static/js/3.5bd1af8d.chunk.js.map": "/Revival_Pictures/static/js/3.5bd1af8d.chunk.js.map",
     "index.html": "/Revival_Pictures/index.html",
     "static/css/2.047300a4.chunk.css.map": "/Revival_Pictures/static/css/2.047300a4.chunk.css.map",
-    "static/css/main.ff798826.chunk.css.map": "/Revival_Pictures/static/css/main.ff798826.chunk.css.map",
-    "static/js/2.e106fef0.chunk.js.LICENSE.txt": "/Revival_Pictures/static/js/2.e106fef0.chunk.js.LICENSE.txt",
+    "static/css/main.543674d6.chunk.css.map": "/Revival_Pictures/static/css/main.543674d6.chunk.css.map",
+    "static/js/2.8b616bdd.chunk.js.LICENSE.txt": "/Revival_Pictures/static/js/2.8b616bdd.chunk.js.LICENSE.txt",
+    "static/media/About.css": "/Revival_Pictures/static/media/footer.82936c00.png",
+    "static/media/about_bg2.0c8c4c76.svg": "/Revival_Pictures/static/media/about_bg2.0c8c4c76.svg",
     "static/media/connect.893fe0a3.png": "/Revival_Pictures/static/media/connect.893fe0a3.png",
-    "static/media/dc.5127c73c.jpg": "/Revival_Pictures/static/media/dc.5127c73c.jpg",
-    "static/media/flash.42983fdc.jpg": "/Revival_Pictures/static/media/flash.42983fdc.jpg",
     "static/media/logo.6ce24c58.svg": "/Revival_Pictures/static/media/logo.6ce24c58.svg",
     "static/media/popcorn.860be52d.png": "/Revival_Pictures/static/media/popcorn.860be52d.png",
-    "static/media/select.bb31c43e.png": "/Revival_Pictures/static/media/select.bb31c43e.png",
-    "static/media/things.7cd2b1aa.jpg": "/Revival_Pictures/static/media/things.7cd2b1aa.jpg"
+    "static/media/select.bb31c43e.png": "/Revival_Pictures/static/media/select.bb31c43e.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.c048ad21.js",
+    "static/js/runtime-main.d65def30.js",
     "static/css/2.047300a4.chunk.css",
-    "static/js/2.e106fef0.chunk.js",
-    "static/css/main.ff798826.chunk.css",
-    "static/js/main.d60e00e5.chunk.js"
+    "static/js/2.8b616bdd.chunk.js",
+    "static/css/main.543674d6.chunk.css",
+    "static/js/main.927d3699.chunk.js"
   ]
 }
