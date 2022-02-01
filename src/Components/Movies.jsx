@@ -54,16 +54,16 @@ function Movies(){
             })
         })
   
-        fetch("https://api.tvmaze.com/shows").then((response)=>{
+        fetch("https://api.themoviedb.org/3/tv/popular?api_key=52a18783ed514602a5facb15a0177e61&language=en-US&page=1").then((response)=>{
           response.json().then((resp)=>{
-              setUpcoming(resp.slice(20,40));
+              setUpcoming(resp.results);
               console.log(resp);
           })
       })
       fetch("https://api.themoviedb.org/3/movie/popular?api_key=52a18783ed514602a5facb15a0177e61&language=en-US&page=1").then((response)=>{
           response.json().then((resps)=>{
               setMovies(resps.results);
-              console.log(resps.items);
+              console.log(resps.results);
           })
       })
       fetch("https://api.themoviedb.org/3/movie/upcoming?api_key=52a18783ed514602a5facb15a0177e61&language=en-US").then((response)=>{
@@ -76,7 +76,7 @@ function Movies(){
 
     return(
         <div className="pt-4" style={{backgroundColor: 'black'}}>
-        <Carousel  indicators={false} controls={false} >
+        <Carousel  indicators={true} controls={true} >
           {
             caraousel_img.map((item)=>
               <Carousel.Item interval={6000} >
@@ -126,28 +126,27 @@ function Movies(){
             </Col>
             </Row>
 
-            <div className="mt-2 justify-content-between center pt-3" id="container" >
-                    {
-                        upcoming?.map((item)=>
-                                
-                                <div  className="mx-4">
-                            <Row className="justify-content-center  ">
-                            <Card  className="bg-dark text-white mb-3 zoom1  px-0" style={{width:"12rem",borderRadius:"15px"}} onClick={()=>{history.push({pathname:`/mdata/${item.externals.imdb}`,search:item.externals.imdb})}} >
-                            <Card.Img src={item.image.medium} alt="Card image" style={{borderRadius:"15px"}} />
-                          
-                            <div className="row justify-content-center info">
-                                <i class="far fa-play-circle" style={{fontSize:"2rem"}}></i>
-                                <p className="m-0">{item.name}</p>
-                                <small style={{fontSize:"0.6rem"}}>{item.genres[0]} .<i class="fas fa-heart text-danger mt-1 mx-1"></i>{item.rating.average} . {item.language}</small>
-                            </div>
+            <div className=" justify-content-between  center pt-4 " id="container" style={{backgroundColor:"black"}}>
+                {
+                    upcoming?.map((item)=>
+                    <div  className="mx-4">
+                    <Row className="justify-content-center">
+                    <Card  className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem" , borderRadius:"15px"}} onClick={()=>{history.push({pathname:`/mdata/${item.id}`, search:item.name})}}>
+                    <Card.Img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="Card image" style={{borderRadius:"15px"}} />
+                
+                    <div className="row justify-content-center info">
+                        <i class="far fa-play-circle" style={{fontSize:"2rem"}}></i>
+                        <p className="m-0">{item.original_title}{item.original_name}</p>
+                        <small style={{fontSize:"0.6rem"}}>{item.vote_average} .<i class="fas fa-heart text-danger mt-1 mx-1"></i>{item.vote_count} . {item.original_language}</small>
+                    </div>
 
-                            </Card>
-                              </Row>
-                            </div>
-                        )
-                    } 
-                  
-            </div>
+                    </Card>
+                    </Row>
+                    </div>
+                    )
+
+                }
+            </div>  
         </div>
 
 

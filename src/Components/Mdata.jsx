@@ -36,7 +36,7 @@ export default function Mdata(props){
                 })
             })
         
-        fetch("https://api.themoviedb.org/3/movie/"+id+"/similar?api_key=52a18783ed514602a5facb15a0177e61&language=en-US&page=1").then((response)=>{
+        fetch("https://api.themoviedb.org/3/movie/"+id+"/similar?api_key=52a18783ed514602a5facb15a0177e61&language=en-US").then((response)=>{
             response.json().then((resps)=>{
                 console.log(resps.results);
                 setPopular(resps.results)
@@ -111,7 +111,7 @@ export default function Mdata(props){
         <div>
             <Row className="  d-flex justify-content-between  w-100" style={{backgroundColor:"black"}}>
             <Col lg={2} md={4} xs={6}>
-            <h5 className="text-white border-bottom  mx-3">Most Popular</h5>
+            <h5 className="text-white border-bottom  mx-3">Recommended Movies</h5>
             </Col>
             <Col  lg={2} md={2} xs={2}>
             <Row className="justify-content-end "> 
@@ -127,7 +127,7 @@ export default function Mdata(props){
                     popular?.map((item)=>
                     <div  className="mx-4">
                     <Row className="justify-content-center">
-                    <Card  className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem" , borderRadius:"15px"}} onClick={()=>{history.push({pathname:`/mdata/${item.id}`,search:item.original_title})}}>
+                    <Card  className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem" , borderRadius:"15px"}} onClick={()=>{history.push({pathname:`/mdata/${item.id}`,search:item.title})}}>
                     <Card.Img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="Card image" style={{borderRadius:"15px"}} />
                 
                     <div className="row justify-content-center info">
