@@ -49,7 +49,7 @@ function Movies(){
       })
         fetch("https://api.tvmaze.com/shows").then((response)=>{
             response.json().then((resp)=>{
-                setToggle(resp.slice(40,60));
+                setToggle(resp.slice(60,80));
                 console.log(toggle);
             })
         })
