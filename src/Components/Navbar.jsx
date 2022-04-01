@@ -8,9 +8,11 @@ import Player from "./Player.jsx";
 import Mdata from "./Mdata.jsx";
 import logo from "../assets/popcorn.png";
 import Login from "./Login.jsx";
-import Mdata1 from "./mdata1.jsx";
+// import Mdata1 from "./mdata1.jsx";
 // import history from "./history";
 import AllMovie from './AllMovies';
+import TvData from './TvData';
+import TvPlayer from './TvPlayer';
 
 function Navbars() {
   const [search, setSearch] = useState([]);
@@ -25,9 +27,6 @@ function Navbars() {
     setData(e.target.value);
   }
 
-  function showInfo(){
-    alert("screen touched")
-  }
 
   function showData(){
     let input = data;
@@ -102,12 +101,14 @@ function Navbars() {
             <Route path="/login">  <Login /></Route>
             <Route path="/Home"> <Home /></Route>
             <Route path="/about"> <About /></Route>
-            <Route path="/contact"> <Player /></Route>
+            <Route path="/player/:id"> <Player /></Route>
+            <Route path="/tvPlayer/:id"> <TvPlayer /></Route>
             <Route path="/mdata/:id"> <Mdata /></Route>
+            <Route path="/tvData/:id"> <TvData /></Route>
             <Route path="/allMovies">  <AllMovie /></Route>
             <Route path="/login"> <Login /></Route>
             <Route path="/Revival_Pictures"> <Home /></Route>
-            <Route path="/mdata1"> <Mdata1 /></Route>
+            {/* <Route path="/mdata1"> <Mdata1 /></Route> */}
             <Route path="*"> <AllMovie /> </Route>
           </Switch>
         </div>
@@ -122,8 +123,8 @@ function Navbars() {
             </Modal.Header>
              <Modal.Body>
                     <Form className="d-flex">
-                      <FormControl type="search"  placeholder="Search"  className="me-2 w-75"  aria-label="Search"  onChange={getData}  onTouchend={getData}/>
-                      <Button variant="success" className="w-25" onClick={showData}  onTouchstart={showInfo} ><i class="fas fa-search"></i></Button>
+                      <FormControl type="search"  placeholder="Search"  className="me-2 w-75"  aria-label="Search"  onChange={getData} />
+                      <Button variant="success" className="w-25" onClick={showData} ><i class="fas fa-search"></i></Button>
                     </Form>
 
                     {print ? (
@@ -132,7 +133,7 @@ function Navbars() {
                           <Col className="p-0 ">
                             <Nav.Link as={Link} to={`/mdata/${item.imdbID}`}>
                               <Card className=" text-white mb-3 zoom1"  style={{ width: "12rem" }}  onClick={()=>{setLgShow(false)}}>
-                                <Card.Img src={item.Poster} alt="Card image"  />
+                                <Card.Img src={item.Poster} alt="Card image" />
 
                                 <div className="row justify-content-center info  mx-3">
                                   <i class="far fa-play-circle" style={{ fontSize: "2rem" }}></i>

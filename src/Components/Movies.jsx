@@ -13,30 +13,30 @@ function Movies(){
     const [popular, setPopular] = useState([]);
     let caraousel_img = [
                           {
-                            Name:"Pushpa:The Rise part-01",
-                            Image:"  https://shikshanews.com/wp-content/uploads/Pushpa-cover.jpeg ",
-                            Plot:"Violence erupts between red sandalwood smugglers and the police charged with bringing down their organization.",
+                            Name:"The Kashmir files",
+                            Image:"https://i.ytimg.com/vi/Dc-Lf4NvmJY/maxresdefault.jpg",
+                            Plot:"Interviews about the exodus of Kashmiri Hindus in 1990.",
                             Genre:"Action",
-                            Year:"2021",
-                            imdbId:"tt9389998",
+                            Year:"2022",
+                            imdbId:"tt10811166",
                             Duration:"2hr 30min",
                           },
                           {
-                            Name:"Spider-man:No Way Home",
-                            Image:" https://images.thedirect.com/media/article_full/Spider-Man-NoWayHomePoster.jpg ",
-                            Plot:"With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it truly means to be Spider-Man.",
+                            Name:"Radhe Shyam",
+                            Image:" https://images.indianexpress.com/2020/10/Beats-Of-Radhe-Shyam-1200.jpg",
+                            Plot:"Radhe Shyam is a romantic drama set in Europe in the 1970s starring Prabhas and Pooja Hegde in prominent roles.",
                             Genre:"Action",
-                            Year:"2021",
-                            imdbId:"tt10872600",
+                            Year:"2022",
+                            imdbId:"tt8960382",
                             Duration:"2hr 28min",
                           },
                           {
-                            Name:"83",
-                            Image:" https://chopnews.com/wp-content/uploads/2020/03/maxresdefault.jpg	 ",
-                            Plot:"On June 25, 1983, the Lord's Cricket Ground witnessed 14 men beat the twice over World Champions West Indies, putting India back onto the cricket world stage.",
+                            Name:"RRR",
+                            Image:" https://filmfare.wwmindia.com/content/2020/mar/rrr11585126792.jpg ",
+                            Plot:"A tale of two legendary revolutionaries and their journey far away from home. After journey they return home to start fighting  against British colonialists in the 1920s.",
                             Genre:"sports/drama",
-                            Year:"2021",
-                            imdbId:"tt7518786",
+                            Year:"2022",
+                            imdbId:"tt8178634",
                             Duration:"2hr 32min",
                           },
                         ];
@@ -47,9 +47,10 @@ function Movies(){
       AOS.init({
         duration : 1500
       })
-        fetch("https://api.tvmaze.com/shows").then((response)=>{
+      // https://api.tvmaze.com/shows
+        fetch("https://api.themoviedb.org/3/tv/top_rated?api_key=52a18783ed514602a5facb15a0177e61&language=en-US&page=2").then((response)=>{
             response.json().then((resp)=>{
-                setToggle(resp.slice(60,80));
+                setToggle(resp.results);
                 console.log(toggle);
             })
         })
@@ -115,7 +116,7 @@ function Movies(){
       <div>
           <Row className=" mt-5 d-flex justify-content-between  w-100">
             <Col lg={2} md={4} xs={6}>
-            <p className="text-white border-bottom  mx-3">Recently Added</p>
+            <p className="text-white border-bottom  mx-3">Popular Series</p>
             </Col>
             <Col  lg={2} md={2} xs={2} >
               <Row className="justify-content-end me-2"> 
@@ -131,7 +132,7 @@ function Movies(){
                     upcoming?.map((item)=>
                     <div  className="mx-4">
                     <Row className="justify-content-center">
-                    <Card  className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem" , borderRadius:"15px"}} onClick={()=>{history.push({pathname:`/mdata/${item.id}`, search:item.name})}}>
+                    <Card  className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem" , borderRadius:"15px"}} onClick={()=>{history.push({pathname:`/tvData/${item.id}`, search:item.original_name})}}>
                     <Card.Img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="Card image" style={{borderRadius:"15px"}} />
                 
                     <div className="row justify-content-center info">
@@ -206,19 +207,19 @@ function Movies(){
                 {
                 toggle.map((item)=>
                 <div  className="mx-4">
-                <Row className="justify-content-center ">
-                <Card  className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem" , borderRadius:"15px"}} onClick={()=>{history.push({pathname:`/mdata/${item.externals.imdb}`,search:item.externals.imdb})}}>
-                <Card.Img src={item.image.medium} alt="Card image" style={{borderRadius:"15px"}} />
-               
-                <div className="row justify-content-center info">
-                    <i class="far fa-play-circle" style={{fontSize:"2rem"}}></i>
-                    <p className="m-0">{item.name}</p>
-                    <small style={{fontSize:"0.6rem"}}>{item.genres[0]} .<i class="fas fa-heart text-danger mt-1 mx-1"></i>{item.rating.average} . {item.language}</small>
-                </div>
+                    <Row className="justify-content-center">
+                    <Card  className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem" , borderRadius:"15px"}} onClick={()=>{history.push({pathname:`/tvData/${item.id}`, search:item.original_name})}}>
+                    <Card.Img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="Card image" style={{borderRadius:"15px"}} />
+                
+                    <div className="row justify-content-center info">
+                        <i class="far fa-play-circle" style={{fontSize:"2rem"}}></i>
+                        <p className="m-0">{item.original_title}{item.original_name}</p>
+                        <small style={{fontSize:"0.6rem"}}>{item.vote_average} .<i class="fas fa-heart text-danger mt-1 mx-1"></i>{item.vote_count} . {item.original_language}</small>
+                    </div>
 
-                </Card>
-                  </Row>
-                </div>
+                    </Card>
+                    </Row>
+                    </div>
                 )
 
                 }
