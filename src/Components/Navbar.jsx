@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {BrowserRouter as Router,Redirect,Route,Link,Switch,} from "react-router-dom";
+import {BrowserRouter as Router,Redirect,Route,Link,Switch} from "react-router-dom";
 import {Navbar,Nav,Container,Offcanvas,NavDropdown, Form, FormControl,Button,Modal,Row, Col,Card,} from "react-bootstrap";
 
 import Home from "./Movies.jsx";
@@ -19,19 +19,22 @@ function Navbars() {
   const [lgShow, setLgShow] = useState(false);
   const [print, setPrint] = useState(false);
   const [data,setData] = useState();
-
+let logStatus = localStorage.getItem("loginStatus");
   // let history = useHistory();
 
   function getData(e) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setData(e.target.value);
   }
 
+ const handleLogout = () =>{
+   localStorage.clear();
+ }
 
   function showData(){
     let input = data;
     let len = input.length;
-    console.log(len);
+    // console.log(len);
     if (len > 0) {
       setPrint(true);
       fetch(
@@ -39,7 +42,7 @@ function Navbars() {
       ).then((response) => {
         response.json().then((resp) => {
           setSearch(resp.Search);
-          console.log(resp.Search);
+          // console.log(resp.Search);
         });
       });
     } else {
@@ -88,6 +91,9 @@ function Navbars() {
                       <NavDropdown.Divider />
                       <NavDropdown.Item href="#action5">  Something else here </NavDropdown.Item>
                     </NavDropdown>
+                    <Nav.Link onClick={handleLogout} as={Link} to={"/login"}> {
+                      logStatus === "success"?"Logout":"Login"
+                    } </Nav.Link>
                   </Nav>
                 </Offcanvas.Body>
               </Navbar.Offcanvas>
@@ -97,7 +103,7 @@ function Navbars() {
 
         <div>
           <Switch>  
-            <Route exact path="/" component={() => <Redirect to="/Home" />} />
+            <Route exact path="/" component={() => <Redirect to="/login" />} />
             <Route path="/login">  <Login /></Route>
             <Route path="/Home"> <Home /></Route>
             <Route path="/about"> <About /></Route>

@@ -5,18 +5,21 @@ import {useHistory,useParams} from 'react-router-dom';
 
 export default function tvPlayer(){
     let history = useHistory();
-    console.log(history);
+    // console.log(history);
     let season_no = history.location.search.slice(1);
-    console.log(season_no);
+    // console.log(season_no);
     let episode_no = history.location.hash.slice(1);
-    console.log(episode_no);
+    // console.log(episode_no);
     let {id} = useParams();
     console.log(id);
 
-    const [imdb, setImdb] =useState("https://imdbembed.xyz/tv/imdb/"+id+'-'+season_no+'-'+episode_no)
+    const [imdb, setImdb] =useState("https://imdbembed.xyz/tv/tmdb/"+id+'-'+season_no+'-'+episode_no)
     console.log(imdb);
     
     return(
-        <iframe src={imdb} width="100%" class="player" frameborder="0" allowfullscreen></iframe>
+        <iframe src={imdb} width="100%" class="player" frameborder="0" allowFullScreen></iframe>
     );
 }
+// 12088800 csdl
+// 1208880002004329 demat
+

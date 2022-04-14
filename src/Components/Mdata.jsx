@@ -9,33 +9,21 @@ import 'aos/dist/aos.css';
 export default function Mdata(props){
     let history = useHistory();
     let {id} = useParams();
-    console.log(id);
+    // console.log(id);
     const [lastid , setlastId] = useState("");
-    console.log(lastid);
+    // console.log(lastid);
      const [src, setSrc] = useState('https://www.omdbapi.com/?i='+id+'&plot=short&apikey=9f5e5150')
      const [data,setData] = useState({});
      const [popular , setPopular] = useState([]);
     let BaseUrl = {src};
-    console.log(history);
+    // console.log(history);
 
-
-    // function reloadData(){debugger
-    //     if(id !== lastid){
-    //         alert("get the new id");
-    //         fetch(`https://www.omdbapi.com/?t=${history.location.search}&plot=short&apikey=9f5e5150`).then((response)=>{
-    //             response.json().then((resp)=>{
-    //                 console.log(resp);
-    //                 setData(resp);
-    //             })
-    //         })
-    //     }
-    // }
 
     useEffect(() => {
         AOS.init({   
             duration: 2000
           })
-    console.log(BaseUrl);
+    // console.log(BaseUrl);
          
               fetch(`https://www.omdbapi.com/?i=${id}&plot=short&apikey=9f5e5150`).then((response)=>{
                   response.json().then((resp)=>{
@@ -50,7 +38,7 @@ export default function Mdata(props){
           if(id !== lastid){
             fetch(`https://www.omdbapi.com/?t=${history.location.search}&plot=short&apikey=9f5e5150`).then((response)=>{
                 response.json().then((resp)=>{
-                    console.log(resp);
+                    // console.log(resp);
                     setData(resp);
                 })
             })

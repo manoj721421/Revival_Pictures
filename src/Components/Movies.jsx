@@ -40,8 +40,12 @@ function Movies(){
                             Duration:"2hr 32min",
                           },
                         ];
-                        console.log(caraousel_img )
+                        // console.log(caraousel_img )
     let history = useHistory();
+    let login_status = localStorage.getItem("loginStatus");
+    const[logStatus, setLoginStatus]=useState(login_status);
+
+    console.log(logStatus);
 
     useEffect(()=>{
       AOS.init({
@@ -51,20 +55,20 @@ function Movies(){
         fetch("https://api.themoviedb.org/3/tv/top_rated?api_key=52a18783ed514602a5facb15a0177e61&language=en-US&page=2").then((response)=>{
             response.json().then((resp)=>{
                 setToggle(resp.results);
-                console.log(toggle);
+                // console.log(toggle);
             })
         })
   
         fetch("https://api.themoviedb.org/3/tv/popular?api_key=52a18783ed514602a5facb15a0177e61&language=en-US&page=1").then((response)=>{
           response.json().then((resp)=>{
               setUpcoming(resp.results);
-              console.log(resp);
+              // console.log(resp);
           })
       })
       fetch("https://api.themoviedb.org/3/movie/popular?api_key=52a18783ed514602a5facb15a0177e61&language=en-US&page=1").then((response)=>{
           response.json().then((resps)=>{
               setMovies(resps.results);
-              console.log(resps.results);
+              // console.log(resps.results);
           })
       })
       fetch("https://api.themoviedb.org/3/movie/upcoming?api_key=52a18783ed514602a5facb15a0177e61&language=en-US").then((response)=>{
@@ -132,7 +136,7 @@ function Movies(){
                     upcoming?.map((item)=>
                     <div  className="mx-4">
                     <Row className="justify-content-center">
-                    <Card  className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem" , borderRadius:"15px"}} onClick={()=>{history.push({pathname:`/tvData/${item.id}`, search:item.original_name})}}>
+                    <Card  className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem" , borderRadius:"15px"}} onClick={()=>{history.push({pathname:`/tvData/${item.id}`, search:item.name})}}>
                     <Card.Img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="Card image" style={{borderRadius:"15px"}} />
                 
                     <div className="row justify-content-center info">
@@ -170,12 +174,12 @@ function Movies(){
                     popular?.map((item)=>
                     <div  className="mx-4">
                     <Row className="justify-content-center">
-                    <Card  className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem" , borderRadius:"15px"}} onClick={()=>{history.push({pathname:`/mdata/${item.id}`, search:item.original_title})}}>
+                    <Card  className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem" , borderRadius:"15px"}} onClick={()=>{history.push({pathname:`/mdata/${item.id}`, search:item.title})}}>
                     <Card.Img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="Card image" style={{borderRadius:"15px"}} />
                 
                     <div className="row justify-content-center info">
                         <i class="far fa-play-circle" style={{fontSize:"2rem"}}></i>
-                        <p className="m-0">{item.original_title}{item.original_name}</p>
+                        <p className="m-0">{item.title}{item.original_name}</p>
                         <small style={{fontSize:"0.6rem"}}>{item.vote_average} .<i class="fas fa-heart text-danger mt-1 mx-1"></i>{item.vote_count} . {item.original_language}</small>
                     </div>
 

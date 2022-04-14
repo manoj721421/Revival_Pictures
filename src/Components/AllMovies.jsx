@@ -25,7 +25,7 @@ export default function AllMovie(){
      
         fetch("https://api.themoviedb.org/3/tv/top_rated?api_key=1268590fd0b518ebdddbeb4a3e70199c&language=en-US&page="+page).then((response)=>{
             response.json().then((resp)=>{
-                console.warn(resp)
+                // console.warn(resp)
               setAll(resp.results);
             })
         })
@@ -63,7 +63,7 @@ export default function AllMovie(){
             <li class="page-item p-0" className={(page == 1?"page-item p-0 disabled":"page-item p-0")}><a className=" page-link" onClick={gotoPrevious}>Previous</a></li>
             <li class="page-item p-0"><a className=" page-link" onClick={()=>{setPage(1)}}>1</a></li>
             <li class="page-item p-0" ><a className=" page-link" onClick={()=>{setPage(2)}}>2</a></li>
-            <li class="page-item p-0"><a className=" page-link" onClick={()=>{setPage(3)}}>3</a></li>''
+            <li class="page-item p-0"><a className=" page-link" onClick={()=>{setPage(3)}}>3</a></li>
             <li class="page-item p-0"><a className=" page-link" onClick={()=>{setPage(4)}}>4</a></li>
             <li class="page-item p-0" ><a className=" page-link" onClick={()=>{setPage(5)}}>5</a></li>
             <li class="page-item p-0"><a className=" page-link" onClick={()=>{setPage(6)}}>6</a></li>
