@@ -4,6 +4,9 @@ import {Row,Col,Button,Card} from 'react-bootstrap';
 import "../Style/Mdata.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCirclePlay } from '@fortawesome/free-regular-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 // import {useLocation} from "react-router-dom";
 
 export default function Mdata(props){
@@ -152,9 +155,9 @@ export default function Mdata(props){
                     <Card.Img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="Card image" style={{borderRadius:"15px"}} />
                 
                     <div className="row justify-content-center info">
-                        <i class="far fa-play-circle" style={{fontSize:"2rem"}} ></i>
+                    <FontAwesomeIcon icon={faCirclePlay} shake style={{fontSize:'2rem'}} /> 
                         <p className="m-0">{item.original_title}{item.original_name}</p>
-                        <small style={{fontSize:"0.6rem"}}>{item.vote_average} .<i class="fas fa-heart text-danger mt-1 mx-1"></i>{item.vote_count} . {item.original_language}</small>
+                        <small style={{fontSize:"0.6rem"}}>{item.vote_average} .<FontAwesomeIcon icon={faHeart} beat className="mt-1 mx-1 text-danger" />{item.vote_count} . {item.original_language}</small>
                     </div>
 
                     </Card>

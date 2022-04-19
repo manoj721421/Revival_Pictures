@@ -6,6 +6,12 @@ import enjoy from "../assets/popcorn.png";
 import "../Style/Login.css";
 import {useHistory,useParams} from "react-router-dom";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF } from '@fortawesome/free-brands-svg-icons'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faGooglePlusG} from '@fortawesome/free-brands-svg-icons'
+import { faRedditAlien } from '@fortawesome/free-brands-svg-icons'
+
 function Login(){
     const [signup , setSignup] = useState(false);
     const [input , setInput] = useState('');
@@ -111,9 +117,9 @@ useEffect(()=>{
    }
     return(
         <div className="" style={{backgroundColor: "black"}}>
-        <Row className="d-flex justify-content-center py-5">
-            <Col lg={4} md={12} className="bg-danger p-5" style={{borderRadius:"15px 0 0px 15px"}}>
-              <Row className="">
+        <Row className="d-flex justify-content-center w-100 px-3 m-0 py-5">
+            <Col lg={4} md={12} sm={6} className="bg-danger py-5 px-0 left-border">
+              <Row className="mx-3">
               <div className="d-flex justify-content-center my-4">
                     <img src={connect} alt="" width="70px"/>
                     <div className="mx-3 ">
@@ -121,7 +127,7 @@ useEffect(()=>{
                         <p>Connect To revival pictures</p>
                     </div>
                 </div>
-                <div className="d-flex justify-content-center my-4  mx-5">
+                <div className="d-flex justify-content-center my-4 ">
                     <img src={select} alt="" width="70px" />
                     <div className="mx-3">
                         <h3 className="m-0 text-white">Select</h3>
@@ -137,7 +143,7 @@ useEffect(()=>{
                 </div>
               </Row>
             </Col>
-            <Col xs={12} md={12} lg={4} className="bg-white" style={{borderRadius:"0 15px 15px 0"}}>
+            <Col xs={12} md={12} lg={4} className="bg-white p-0 right-border" >
                 <h5 className="text-dark px-5 mb-4 mt-4"> <span>Login</span> or <span>Sign Up </span> with your email address </h5>
                 <Form className="bg-white px-5">
                             <Form.Group className="mb-3 "  controlId="formBasicEmail">
@@ -154,13 +160,16 @@ useEffect(()=>{
                                </div>:null
                            }
                 </Form>
-                <Row className="justify-content-center mt-2">
+                <Row className="justify-content-center mt-0">
                     <p className="m-0">Connect with other platforms :</p>
                     <div className="" style={{fontSize:"2.5rem"}}>
-                    <i class="fab fa-facebook-square text-primary"></i>
-                    <i class="fab fa-google-plus-square ms-2 text-danger"></i>
-                    <i class="fab fa-twitter-square mx-2 text-info"></i>
-                    <i class="fab fa-reddit-square text-warning"></i>
+                    <FontAwesomeIcon icon={faFacebookF} className="text-primary" />
+                    <FontAwesomeIcon icon={faGooglePlusG} className="ms-3 text-danger" />
+                    <FontAwesomeIcon icon={faTwitter} className="mx-3 text-info" />
+                    <FontAwesomeIcon icon={faRedditAlien} className="text-primary" />
+                    {/* <i class="fab fa-google-plus-square "></i>
+                    <i class="fab fa-twitter-square "></i>
+                    <i class="fab fa-reddit-square text-warning"></i> */}
                     </div>
                 </Row>
             </Col> 

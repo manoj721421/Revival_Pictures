@@ -4,7 +4,13 @@ import {BrowserRouter as Router, Route, Link,Switch,useHistory} from 'react-rout
 import "../Style/Movies.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleInfo } from '@fortawesome/free-solid-svg-icons'
+import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faCirclePlay } from '@fortawesome/free-regular-svg-icons'
 
 function Movies(){
     const [toggle,setToggle] = useState([]);
@@ -31,9 +37,9 @@ function Movies(){
                             Duration:"2hr 28min",
                           },
                           {
-                            Name:"RRR",
+                            Name:"RRR - Rise Roar Revolt",
                             Image:" https://filmfare.wwmindia.com/content/2020/mar/rrr11585126792.jpg ",
-                            Plot:"A tale of two legendary revolutionaries and their journey far away from home. After journey they return home to start fighting  against British colonialists in the 1920s.",
+                            Plot:"A tale of two legendary revolutionaries and their journey, return to home to fightining against british  in 1920s ",
                             Genre:"sports/drama",
                             Year:"2022",
                             imdbId:"tt8178634",
@@ -45,7 +51,6 @@ function Movies(){
     let login_status = localStorage.getItem("loginStatus");
     const[logStatus, setLoginStatus]=useState(login_status);
 
-    console.log(logStatus);
 
     useEffect(()=>{
       AOS.init({
@@ -81,10 +86,43 @@ function Movies(){
 
     return(
         <div className="pt-4" style={{backgroundColor: 'black'}}>
-        <Carousel  indicators={true} controls={true} >
+
+      {/* carousel section started */}
+
+          <Carousel indicators={true} controls={true} >
+            {
+              caraousel_img.map((item)=>(
+                <Carousel.Item interval={25000} >
+                  
+                <img 
+                  className="d-block  img"
+                  src={item.Image}
+                  alt="First slide" height="500px"
+                />
+                <Carousel.Caption>
+                  <h3 class="text">{item.Name}</h3>
+                  <p>{item.Plot}</p>
+                  <Row className="  mt-3 btns">
+                     <div className="d-flex justify-content-center">
+                     <Button variant="danger" className="" onClick ={()=>{history.push(`/mdata/${item.imdbId}`)}} ><FontAwesomeIcon icon={faCircleInfo} /> <span className="none">Details</span></Button>
+                       <Button variant="danger" className=" mx-3 text-white" onClick={()=>{history.push({pathname:`/player/${item.imdbId}`,})}}><FontAwesomeIcon icon={faPlayCircle} /> <span className="none">Watch</span> </Button> 
+                       <Button variant="danger" className=""><FontAwesomeIcon icon={faPlus} /> <span className="none">Watchlist</span></Button> 
+                     </div>
+                    </Row>  
+                </Carousel.Caption>
+              </Carousel.Item>
+             
+              )
+              )
+            }
+          </Carousel>
+          
+      {/* carousel section ended */}
+
+        {/* <Carousel  indicators={true} controls={false} style={{zIndex:999}}>
           {
             caraousel_img.map((item)=>
-              <Carousel.Item interval={6000} >
+              <Carousel.Item interval={2000} >
               <Card  className="mx-4" style={{backgroundColor:"black"}}>
               <Row>
                 <Col xs={6} md={5}>
@@ -93,16 +131,16 @@ function Movies(){
                  {item.Name}
                   </p>
                   <small className=" text-white">{item.Genre} . {item.Duration} . {item.Year}</small><br/>
-                    <small className ="hide">{item.Plot}</small> 
+                    <small className ="">{item.Plot}</small> 
                     <Row className="d-flex justify-content-around mt-3 btns">
                       <Col lg={4} md={2} xs={2} className="p-0">
-                        <Button variant="danger" className="" onClick ={()=>{history.push(`/mdata/${item.imdbId}`)}} ><i class="fas fa-info-circle"></i> <span className="none">Details</span></Button>
+                        <Button variant="danger" className="" onClick ={()=>{history.push(`/mdata/${item.imdbId}`)}} ><FontAwesomeIcon icon={faCircleInfo} /> <span className="none">Details</span></Button>
                         </Col>
                         <Col lg={4} md={2} xs={2} className="p-0 ">
-                        <Button variant="outline-danger" className="  text-white"><i class="fas fa-play-circle"></i> <span className="none">Watch Trailer</span> </Button>      
+                        <Button variant="outline-danger" className="  text-white"><FontAwesomeIcon icon={faPlayCircle} /> <span className="none">Watch Trailer</span> </Button>      
                         </Col>
                         <Col lg={4} md={2} xs={2} className="p-0 ">
-                        <Button variant="danger" className=""><i class="fas fa-plus"></i> <span className="none">Watchlist</span></Button> 
+                        <Button variant="danger" className=""><FontAwesomeIcon icon={faPlus} /> <span className="none">Watchlist</span></Button> 
                         </Col>
                     </Row>   
                       </div>
@@ -115,7 +153,10 @@ function Movies(){
               </Carousel.Item>
             )
           }
-      </Carousel>
+      </Carousel> */}
+
+     
+     
 
       <div>
           <Row className=" mt-5 d-flex justify-content-between  w-100">
@@ -125,7 +166,7 @@ function Movies(){
             <Col  lg={2} md={2} xs={2} >
               <Row className="justify-content-end me-2"> 
                 <Col lg={2} md={2} xs={2} >
-                  <Button variant="danger" onClick={()=>{history.push("/allMovies")}}><i class="fas fa-chevron-right"></i></Button>
+                  <Button variant="danger" onClick={()=>{history.push("/allMovies")}}> <FontAwesomeIcon icon={faChevronRight} /> </Button>
                 </Col>
               </Row>
             </Col>
@@ -140,9 +181,9 @@ function Movies(){
                     <Card.Img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="Card image" style={{borderRadius:"15px"}} />
                 
                     <div className="row justify-content-center info">
-                        <i class="far fa-play-circle" style={{fontSize:"2rem"}}></i>
+                    <FontAwesomeIcon icon={faCirclePlay} shake style={{fontSize:'2rem'}} /> 
                         <p className="m-0">{item.original_title}{item.original_name}</p>
-                        <small style={{fontSize:"0.6rem"}}>{item.vote_average} .<i class="fas fa-heart text-danger mt-1 mx-1"></i>{item.vote_count} . {item.original_language}</small>
+                        <small style={{fontSize:"0.6rem"}}>{item.vote_average} .<FontAwesomeIcon icon={faHeart} beat className="mt-1 mx-1 text-danger" />{item.vote_count} . {item.original_language}</small>
                     </div>
 
                     </Card>
@@ -163,7 +204,7 @@ function Movies(){
         <Col  lg={2} md={2} xs={2}>
           <Row className="justify-content-end me-2"> 
               <Col lg={2} md={2} xs={2} >
-                <Button variant="danger" onClick={()=>{history.push("/allMovies")}}><i class="fas fa-chevron-right"></i></Button>
+                <Button variant="danger" onClick={()=>{history.push("/allMovies")}}><FontAwesomeIcon icon={faChevronRight} /> </Button>
               </Col>
             </Row>
         </Col>
@@ -178,9 +219,9 @@ function Movies(){
                     <Card.Img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="Card image" style={{borderRadius:"15px"}} />
                 
                     <div className="row justify-content-center info">
-                        <i class="far fa-play-circle" style={{fontSize:"2rem"}}></i>
+                    <FontAwesomeIcon icon={faCirclePlay} shake style={{fontSize:'2rem'}} /> 
                         <p className="m-0">{item.title}{item.original_name}</p>
-                        <small style={{fontSize:"0.6rem"}}>{item.vote_average} .<i class="fas fa-heart text-danger mt-1 mx-1"></i>{item.vote_count} . {item.original_language}</small>
+                        <small style={{fontSize:"0.6rem"}}>{item.vote_average} .<FontAwesomeIcon icon={faHeart} beat className="mt-1 mx-1 text-danger" />{item.vote_count} . {item.original_language}</small>
                     </div>
 
                     </Card>
@@ -201,7 +242,7 @@ function Movies(){
         <Col  lg={2} md={2} xs={2}>
         <Row className="justify-content-end me-2"> 
             <Col lg={2} md={2} xs={2} >
-              <Button variant="danger" onClick={()=>{history.push("/allMovies")}}><i class="fas fa-chevron-right"></i></Button>
+              <Button variant="danger" onClick={()=>{history.push("/allMovies")}}><FontAwesomeIcon icon={faChevronRight} /> </Button>
             </Col>
           </Row>
         </Col>
@@ -216,9 +257,9 @@ function Movies(){
                     <Card.Img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="Card image" style={{borderRadius:"15px"}} />
                 
                     <div className="row justify-content-center info">
-                        <i class="far fa-play-circle" style={{fontSize:"2rem"}}></i>
+                    <FontAwesomeIcon icon={faCirclePlay} shake style={{fontSize:'2rem'}} /> 
                         <p className="m-0">{item.original_title}{item.original_name}</p>
-                        <small style={{fontSize:"0.6rem"}}>{item.vote_average} .<i class="fas fa-heart text-danger mt-1 mx-1"></i>{item.vote_count} . {item.original_language}</small>
+                        <small style={{fontSize:"0.6rem"}}>{item.vote_average} .<FontAwesomeIcon icon={faHeart} beat className="mt-1 mx-1 text-danger" />{item.vote_count} . {item.original_language}</small>
                     </div>
 
                     </Card>
@@ -241,33 +282,11 @@ function Movies(){
         <Col  lg={2} md={2} xs={2}>
         <Row className="justify-content-end me-2"> 
             <Col lg={2} md={2} xs={2} >
-              <Button variant="danger" onClick={()=>{history.push("/allMovies")}}><i class="fas fa-chevron-right"></i></Button>
+              <Button variant="danger" onClick={()=>{history.push("/allMovies")}}><FontAwesomeIcon icon={faChevronRight} /> </Button>
             </Col>
           </Row>
         </Col>
         </Row>
-    
-              {/* <div className="mt-2  justify-content-between center pt-3">
-                {
-                movies.map((item)=>
-                    <Col className="mx-4">
-                      <Row className="justify-content-center ">
-                    <Card  className="bg-dark text-white mb-3 zoom1 px-0" style={{width:"12rem",borderRadius:"15px"}} onClick={()=>{history.push({pathname:`/mdata/${item.id}`,search:item.id})}}>
-                    <Card.Img src={item.image} alt="Card image" style={{borderRadius:"15px"}}/>
-                
-                    <div className="row justify-content-center info" >
-                        <i class="far fa-play-circle" style={{fontSize:"2rem"}}></i>
-                        <p className="m-0">{item.title}</p>
-                        <small style={{fontSize:"0.6rem"}}>{item.year} . <i class="fas fa-heart text-danger mt-1 mx-1"></i>{item.imDbRating} . {item.imDbRatingCount}</small>
-                    </div>
-
-                    </Card>
-                    </Row>
-                    </Col>
-                )
-
-                }
-              </div> */}
             <div className=" justify-content-between  center pt-4 " id="container" style={{backgroundColor:"black"}}>
                 {
                     movies?.map((item)=>
@@ -277,9 +296,9 @@ function Movies(){
                     <Card.Img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="Card image" style={{borderRadius:"15px"}} />
                 
                     <div className="row justify-content-center info">
-                        <i class="far fa-play-circle" style={{fontSize:"2rem"}}></i>
+                    <FontAwesomeIcon icon={faCirclePlay} shake style={{fontSize:'2rem'}} /> 
                         <p className="m-0">{item.original_title}{item.original_name}</p>
-                        <small style={{fontSize:"0.6rem"}}>{item.vote_average} .<i class="fas fa-heart text-danger mt-1 mx-1"></i>{item.vote_count} . {item.original_language}</small>
+                        <small style={{fontSize:"0.6rem"}}>{item.vote_average} .<FontAwesomeIcon icon={faHeart} beat className="mt-1 mx-1 text-danger" />{item.vote_count} . {item.original_language}</small>
                     </div>
 
                     </Card>

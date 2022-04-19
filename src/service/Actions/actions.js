@@ -4,3 +4,9 @@ export const addToWishlist = (data) => {
         payload: data
     }
 }
+export const savePageData = () => {
+
+    return {
+        type: "SAVE PAGE DATA"
+    }
+}
